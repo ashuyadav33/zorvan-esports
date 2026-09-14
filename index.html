@@ -1,2127 +1,5017 @@
+<!-- ZORVAN ESPORTS — CLEAN PART 1 -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ZORVAN Esports</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-:root{
-  --bg:#010307;
-  --blue:#078cff;
-  --blue2:#0068ff;
-  --cyan:#49c8ff;
-  --white:#f5f9ff;
-  --muted:#8493a5;
-  --line:rgba(65,160,255,.16);
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--bg);
-  color:var(--white);
-  font-family:Inter,Arial,sans-serif;
-  overflow-x:hidden;
-}
-
-/* ===============================
-   CINEMATIC BACKGROUND
-================================ */
-
-.bg{
-  position:fixed;
-  inset:0;
-  z-index:-10;
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      ellipse at 50% -10%,
-      rgba(0,125,255,.27),
-      transparent 42%
-    ),
-    radial-gradient(
-      ellipse at 0% 50%,
-      rgba(0,95,255,.14),
-      transparent 35%
-    ),
-    radial-gradient(
-      ellipse at 100% 70%,
-      rgba(0,145,255,.12),
-      transparent 35%
-    ),
-    #010307;
-}
-
-.bg::before{
-  content:"";
-  position:absolute;
-  width:850px;
-  height:850px;
-  left:50%;
-  top:4%;
-  transform:translateX(-50%);
-
-  border-radius:50%;
-
-  background:radial-gradient(
-    circle,
-    rgba(0,143,255,.20),
-    rgba(0,90,255,.07) 35%,
-    transparent 70%
-  );
-
-  filter:blur(35px);
-  animation:atmosphere 9s ease-in-out infinite alternate;
-}
-
-@keyframes atmosphere{
-  from{
-    transform:translateX(-50%) scale(.9);
-  }
-
-  to{
-    transform:translateX(-50%) scale(1.12);
-  }
-}
-
-/* BLUE LIGHT SWEEP */
-
-.sweep{
-  position:absolute;
-  width:70vw;
-  height:260vh;
-  top:-90vh;
-  left:-80vw;
-
-  background:linear-gradient(
-    90deg,
-    transparent 38%,
-    rgba(0,120,255,.03) 44%,
-    rgba(0,166,255,.14) 48%,
-    rgba(73,200,255,.24) 50%,
-    rgba(0,125,255,.12) 52%,
-    rgba(0,110,255,.02) 58%,
-    transparent 64%
-  );
-
-  filter:blur(24px);
-  transform:rotate(17deg);
-
-  animation:sweep 12s cubic-bezier(.45,0,.55,1) infinite;
-}
-
-.sweep.two{
-  width:35vw;
-  opacity:.45;
-  animation-duration:19s;
-  animation-delay:5s;
-}
-
-@keyframes sweep{
-
-  0%{
-    transform:translateX(0) rotate(17deg);
-    opacity:0;
-  }
-
-  12%{
-    opacity:1;
-  }
-
-  48%{
-    opacity:1;
-  }
-
-  70%{
-    opacity:.55;
-  }
-
-  100%{
-    transform:translateX(240vw) rotate(17deg);
-    opacity:0;
-  }
-}
-
-/* ENERGY RAYS */
-
-.ray{
-  position:absolute;
-  width:130%;
-  height:1px;
-  left:-20%;
-
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(40,165,255,.45),
-    transparent
-  );
-
-  filter:blur(2px);
-  opacity:.35;
-  transform:rotate(-8deg);
-
-  animation:ray 9s linear infinite;
-}
-
-.ray.one{
-  top:34%;
-}
-
-.ray.two{
-  top:72%;
-  animation-delay:3s;
-  opacity:.18;
-}
-
-@keyframes ray{
-  from{
-    transform:translateX(-20%) rotate(-8deg);
-  }
-
-  to{
-    transform:translateX(35%) rotate(-8deg);
-  }
-}
-
-/* GRID */
-
-.grid{
-  position:absolute;
-  inset:0;
-
-  background-image:
-    linear-gradient(rgba(50,145,255,.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(50,145,255,.055) 1px,transparent 1px);
-
-  background-size:70px 70px;
-  opacity:.25;
-
-  mask-image:linear-gradient(
-    to bottom,
-    transparent,
-    black 12%,
-    black 75%,
-    transparent
-  );
-}
-
-/* PARTICLES */
-
-.particles{
-  position:absolute;
-  inset:0;
-
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(70,190,255,.55) 1px,
-      transparent 1px
-    );
-
-  background-size:140px 140px;
-  opacity:.08;
-
-  animation:particles 25s linear infinite;
-}
-
-@keyframes particles{
-  to{
-    transform:translateY(-140px);
-  }
-}
-
-/* ===============================
-   INTRO LOGO REVEAL
-================================ */
-
-.intro{
-  position:fixed;
-  inset:0;
-  z-index:999;
-
-  display:grid;
-  place-items:center;
-
-  background:#010307;
-
-  animation:introHide .8s ease 2.3s forwards;
-  pointer-events:none;
-}
-
-.intro-content{
-  display:flex;
-  align-items:center;
-  gap:15px;
-
-  opacity:0;
-  transform:scale(.72);
-  filter:blur(12px);
-
-  animation:logoReveal 1.2s cubic-bezier(.16,1,.3,1) .2s forwards;
-}
-
-.intro-mark{
-  width:70px;
-  height:70px;
-
-  display:grid;
-  place-items:center;
-
-  background:linear-gradient(
-    145deg,
-    #0b2949,
-    #02070e
-  );
-
-  border:1px solid rgba(67,188,255,.75);
-
-  clip-path:polygon(
-    17% 0,
-    100% 0,
-    83% 100%,
-    0 100%
-  );
-
-  box-shadow:
-    0 0 25px rgba(0,145,255,.6),
-    0 0 80px rgba(0,105,255,.3),
-    inset 0 0 25px rgba(0,150,255,.18);
-}
-
-.intro-mark span{
-  font-size:39px;
-  font-weight:900;
-  font-style:italic;
-
-  color:#4bc5ff;
-
-  text-shadow:
-    0 0 15px #008cff,
-    0 0 40px rgba(0,150,255,.7);
-}
-
-.intro-name{
-  font-size:34px;
-  font-weight:900;
-  letter-spacing:5px;
-
-  text-shadow:
-    0 0 25px rgba(0,145,255,.35);
-}
-
-@keyframes logoReveal{
-
-  0%{
-    opacity:0;
-    transform:scale(.72);
-    filter:blur(12px);
-  }
-
-  55%{
-    opacity:1;
-    filter:blur(0);
-  }
-
-  100%{
-    opacity:1;
-    transform:scale(1);
-    filter:blur(0);
-  }
-}
-
-@keyframes introHide{
-
-  to{
-    opacity:0;
-    visibility:hidden;
-  }
-}
-
-/* ===============================
-   NAVBAR
-================================ */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:100;
-
-  padding:17px 6%;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  background:rgba(1,3,7,.65);
-  backdrop-filter:blur(18px);
-
-  border-bottom:1px solid rgba(70,155,255,.08);
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-
-  text-decoration:none;
-  color:white;
-}
-
-.logo-icon{
-  width:38px;
-  height:38px;
-
-  display:grid;
-  place-items:center;
-
-  background:#061425;
-  border:1px solid rgba(50,166,255,.5);
-
-  clip-path:polygon(
-    18% 0,
-    100% 0,
-    82% 100%,
-    0 100%
-  );
-
-  box-shadow:
-    0 0 20px rgba(0,130,255,.22);
-}
-
-.logo-icon span{
-  color:#43bcff;
-  font-size:21px;
-  font-weight:900;
-  font-style:italic;
-}
-
-.logo-text{
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:3px;
-}
-
-.nav-links{
-  display:flex;
-  gap:28px;
-}
-
-.nav-links a{
-  color:#9eacbd;
-  text-decoration:none;
-
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1px;
-
-  transition:.25s;
-}
-
-.nav-links a:hover{
-  color:#50c4ff;
-  text-shadow:0 0 16px rgba(0,150,255,.7);
-}
 
-.nav-btn{
-  padding:10px 17px;
-
-  color:white;
-  text-decoration:none;
-
-  border:1px solid rgba(50,164,255,.4);
-  border-radius:8px;
-
-  font-size:11px;
-  font-weight:800;
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#05070b"
+  >
+
+  <meta
+    name="description"
+    content="ZORVAN Esports — Play. Compete. Rise."
+  >
+
+  <title>ZORVAN ESPORTS — PLAY. COMPETE. RISE.</title>
+
+
+  <style>
+
+    /* ================================
+       ZORVAN — GLOBAL RESET
+    ================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #05070b;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    /* ================================
+       CINEMATIC BACKGROUND
+    ================================= */
+
+    .zorvan-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -10;
+      overflow: hidden;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(0, 110, 255, 0.14),
+          transparent 34%
+        ),
+        linear-gradient(
+          180deg,
+          #070a10 0%,
+          #05070b 50%,
+          #030407 100%
+        );
+    }
+
+    .bg-glow {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      left: 50%;
+      top: 8%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(0, 110, 255, 0.08);
+      filter: blur(100px);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.035) 1px,
+          transparent 1px
+        );
+      background-size: 60px 60px;
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
+    }
+
+    .bg-sweep {
+      position: absolute;
+      width: 70%;
+      height: 1px;
+      top: 35%;
+      left: -20%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 140, 255, 0.5),
+        transparent
+      );
+      transform: rotate(-8deg);
+      animation: bgSweep 8s linear infinite;
+    }
+
+    @keyframes bgSweep {
+      from {
+        transform: translateX(-30%) rotate(-8deg);
+      }
+
+      to {
+        transform: translateX(180%) rotate(-8deg);
+      }
+    }
+
+    .energy-line {
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        transparent,
+        rgba(0, 140, 255, 0.35),
+        transparent
+      );
+      opacity: 0.35;
+    }
+
+    .energy-line.left {
+      left: 7%;
+    }
+
+    .energy-line.right {
+      right: 7%;
+    }
+
+    .side-rail {
+      position: absolute;
+      top: 50%;
+      width: 5px;
+      height: 90px;
+      transform: translateY(-50%);
+      border-left: 1px solid rgba(0, 140, 255, 0.45);
+      border-right: 1px solid rgba(0, 140, 255, 0.18);
+    }
+
+    .side-rail.left {
+      left: 18px;
+    }
+
+    .side-rail.right {
+      right: 18px;
+    }
+
+
+    /* ================================
+       NAVIGATION
+    ================================= */
+
+    .z-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 6%;
+
+      background: rgba(5, 7, 11, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .z-logo {
+      display: inline-flex;
+      align-items: center;
+
+      color: #ffffff;
+      text-decoration: none;
+
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+    }
+
+    .z-logo::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-right: 10px;
+
+      background: #168cff;
+      box-shadow:
+        0 0 12px rgba(22, 140, 255, 0.9),
+        0 0 28px rgba(22, 140, 255, 0.4);
+
+      transform: rotate(45deg);
+    }
+
+    .z-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .z-nav-links a {
+      position: relative;
+
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+
+      transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+    }
+
+    .z-nav-links a::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 1px;
+
+      background: #168cff;
+
+      box-shadow: 0 0 8px rgba(22,140,255,0.8);
+
+      transition: width 0.25s ease;
+    }
+
+    .z-nav-links a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(22,140,255,0.35);
+    }
+
+    .z-nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .z-nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 38px;
+      padding: 0 18px;
+
+      color: #ffffff;
+      background: rgba(0, 110, 255, 0.08);
+
+      border: 1px solid rgba(22,140,255,0.55);
+
+      text-decoration: none;
+
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+
+      transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .z-nav-button:hover {
+      background: rgba(22,140,255,0.18);
+      box-shadow:
+        0 0 18px rgba(22,140,255,0.18),
+        inset 0 0 18px rgba(22,140,255,0.08);
+    }
+
+    .z-nav-button:active {
+      transform: scale(0.96);
+    }
+
+
+    /* ================================
+       MOBILE NAV
+    ================================= */
+
+    @media (max-width: 760px) {
+
+      .z-nav {
+        height: 68px;
+        padding: 0 20px;
+      }
+
+      .z-logo {
+        font-size: 18px;
+        letter-spacing: 0.14em;
+      }
+
+      .z-nav-links {
+        display: none;
+      }
+
+      .z-nav-button {
+        min-height: 34px;
+        padding: 0 13px;
+        font-size: 9px;
+      }
+
+      .side-rail {
+        display: none;
+      }
+
+      .energy-line.left {
+        left: 2%;
+      }
+
+      .energy-line.right {
+        right: 2%;
+      }
+
+    }
+
+  </style>
 
-  background:rgba(0,100,255,.08);
-
-  transition:.25s;
-}
-
-.nav-btn:hover{
-  background:rgba(0,125,255,.17);
-  box-shadow:0 0 25px rgba(0,130,255,.25);
-}
-
-/* ===============================
-   HERO
-================================ */
-
-.hero{
-  min-height:100vh;
-
-  display:flex;
-  align-items:center;
-
-  padding:145px 6% 90px;
-
-  position:relative;
-}
-
-.hero::after{
-  content:"";
-
-  position:absolute;
-
-  width:500px;
-  height:500px;
-
-  right:-250px;
-  top:20%;
-
-  border-radius:50%;
-
-  background:rgba(0,125,255,.14);
-  filter:blur(100px);
-
-  pointer-events:none;
-}
-
-.hero-content{
-  max-width:850px;
-  position:relative;
-  z-index:2;
-}
-
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-
-  padding:8px 13px;
-
-  border:1px solid rgba(55,166,255,.25);
-  border-radius:999px;
-
-  background:rgba(0,105,255,.07);
-
-  color:#7acaff;
-
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:1.8px;
-
-  box-shadow:0 0 30px rgba(0,120,255,.08);
-
-  animation:heroFade .8s ease 2.55s both;
-}
-
-.dot{
-  width:6px;
-  height:6px;
-
-  border-radius:50%;
-
-  background:#45c3ff;
-
-  box-shadow:0 0 13px #32baff;
-
-  animation:dotPulse 1.5s infinite;
-}
-
-@keyframes dotPulse{
-  50%{
-    opacity:.3;
-    transform:scale(.65);
-  }
-}
-
-.hero h1{
-  margin-top:24px;
-
-  font-size:clamp(55px,9vw,105px);
-  line-height:.89;
-
-  font-weight:900;
-
-  letter-spacing:-5px;
-
-  animation:heroFade .9s ease 2.65s both;
-}
-
-.hero h1 span{
-  color:#28a9ff;
-
-  text-shadow:
-    0 0 25px rgba(0,145,255,.5),
-    0 0 75px rgba(0,105,255,.22);
-}
-
-.hero p{
-  max-width:610px;
-
-  margin-top:28px;
-
-  color:#96a5b6;
-
-  font-size:15px;
-  line-height:1.8;
-
-  animation:heroFade .9s ease 2.75s both;
-}
-
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:13px;
-
-  margin-top:34px;
-
-  animation:heroFade .9s ease 2.85s both;
-}
-
-@keyframes heroFade{
-
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* ===============================
-   BUTTONS
-================================ */
-
-.btn{
-  position:relative;
-  overflow:hidden;
-
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  min-width:165px;
-
-  padding:15px 22px;
-
-  border-radius:9px;
-
-  border:1px solid rgba(65,174,255,.4);
-
-  color:white;
-  text-decoration:none;
-
-  font-size:12px;
-  font-weight:900;
-
-  cursor:pointer;
-
-  transition:
-    transform .16s,
-    box-shadow .25s,
-    background .25s;
-
-  isolation:isolate;
-}
-
-.btn-primary{
-  background:linear-gradient(
-    135deg,
-    #078dff,
-    #075de2
-  );
-
-  box-shadow:
-    0 8px 35px rgba(0,105,255,.24),
-    inset 0 1px rgba(255,255,255,.18);
-}
-
-.btn-primary::before{
-  content:"";
-
-  position:absolute;
-
-  top:-30%;
-  left:-80px;
-
-  width:55px;
-  height:160%;
-
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,.55),
-    transparent
-  );
-
-  transform:skewX(-20deg);
-
-  transition:.55s;
-}
-
-.btn-primary:hover::before{
-  left:125%;
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
-
-  box-shadow:
-    0 13px 45px rgba(0,130,255,.45),
-    0 0 25px rgba(0,155,255,.2);
-}
-
-.btn-secondary{
-  background:rgba(6,14,24,.72);
-}
-
-.btn-secondary:hover{
-  transform:translateY(-3px);
-
-  background:rgba(0,105,255,.12);
-
-  box-shadow:
-    0 0 35px rgba(0,130,255,.23),
-    inset 0 0 25px rgba(0,120,255,.07);
-}
-
-.btn:active{
-  transform:scale(.93)!important;
-}
-
-/* CLICK BURST */
-
-.burst{
-  position:fixed;
-
-  width:18px;
-  height:18px;
-
-  border:2px solid #43c2ff;
-  border-radius:50%;
-
-  pointer-events:none;
-
-  z-index:9999;
-
-  box-shadow:
-    0 0 20px #008cff,
-    0 0 60px rgba(0,125,255,.75);
-
-  animation:burst .7s ease-out forwards;
-}
-
-@keyframes burst{
-
-  from{
-    opacity:1;
-    transform:scale(.2);
-  }
-
-  to{
-    opacity:0;
-    transform:scale(9);
-  }
-}
-
-/* ===============================
-   SECTIONS
-================================ */
-
-section{
-  padding:100px 6%;
-}
-
-.label{
-  color:#43bdff;
-
-  font-size:10px;
-  font-weight:900;
-
-  letter-spacing:2.5px;
-
-  margin-bottom:12px;
-}
-
-.title{
-  font-size:clamp(32px,5vw,54px);
-
-  line-height:.98;
-
-  letter-spacing:-2.5px;
-
-  font-weight:900;
-}
-
-.sub{
-  max-width:620px;
-
-  margin-top:17px;
-
-  color:#8291a3;
-
-  font-size:13px;
-  line-height:1.75;
-}
-
-/* ===============================
-   DEMO TOURNAMENT
-================================ */
-
-.demo-card{
-  max-width:950px;
-
-  margin-top:38px;
-
-  padding:1px;
-
-  border-radius:18px;
-
-  background:linear-gradient(
-    120deg,
-    rgba(48,170,255,.58),
-    rgba(48,170,255,.05),
-    rgba(92,72,255,.18)
-  );
-
-  box-shadow:
-    0 0 70px rgba(0,105,255,.1),
-    0 30px 80px rgba(0,0,0,.4);
-}
-
-.demo-inner{
-  position:relative;
-  overflow:hidden;
-
-  padding:30px;
-
-  border-radius:17px;
-
-  background:
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(0,130,255,.15),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(8,18,30,.97),
-      rgba(2,6,11,.98)
-    );
-}
-
-.demo-inner::after{
-  content:"";
-
-  position:absolute;
-
-  width:350px;
-  height:350px;
-
-  right:-180px;
-  bottom:-200px;
-
-  border-radius:50%;
-
-  background:rgba(0,130,255,.18);
-
-  filter:blur(70px);
-}
-
-.demo-top{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.demo-badge{
-  display:inline-block;
-
-  padding:6px 10px;
-
-  border-radius:5px;
-
-  background:#087df0;
-
-  font-size:9px;
-  font-weight:900;
-
-  letter-spacing:1.5px;
-
-  box-shadow:0 0 20px rgba(0,130,255,.3);
-}
-
-.demo-title{
-  margin-top:14px;
-
-  font-size:29px;
-  font-weight:900;
-}
-
-.demo-meta{
-  margin-top:7px;
-
-  color:#7e8c9e;
-
-  font-size:12px;
-}
-
-.demo-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-
-  gap:12px;
-
-  margin-top:27px;
-}
-
-.demo-stat{
-  padding:16px;
-
-  border:1px solid rgba(70,155,255,.12);
-
-  border-radius:10px;
-
-  background:rgba(0,85,170,.07);
-}
-
-.demo-stat small{
-  display:block;
-
-  margin-bottom:7px;
-
-  color:#6f7e90;
-
-  font-size:9px;
-}
-
-.demo-stat strong{
-  font-size:13px;
-}
-
-/* ===============================
-   FEATURES
-================================ */
-
-.feature-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-
-  gap:15px;
-
-  margin-top:40px;
-}
-
-.card{
-  position:relative;
-  overflow:hidden;
-
-  min-height:205px;
-
-  padding:27px;
-
-  border:1px solid var(--line);
-
-  border-radius:14px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(10,21,35,.78),
-      rgba(3,8,14,.76)
-    );
-
-  box-shadow:0 0 45px rgba(0,100,255,.055);
-
-  transition:.3s;
-}
-
-.card::before{
-  content:"";
-
-  position:absolute;
-
-  width:150px;
-  height:150px;
-
-  right:-80px;
-  top:-80px;
-
-  border-radius:50%;
-
-  background:rgba(0,135,255,.18);
-
-  filter:blur(35px);
-
-  transition:.4s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-
-  border-color:rgba(50,160,255,.35);
-
-  box-shadow:0 18px 55px rgba(0,110,255,.13);
-}
-
-.card:hover::before{
-  transform:scale(1.8);
-}
-
-.icon{
-  width:43px;
-  height:43px;
-
-  display:grid;
-  place-items:center;
-
-  margin-bottom:23px;
-
-  border-radius:10px;
-
-  color:#51c3ff;
-
-  background:rgba(0,125,255,.1);
-
-  border:1px solid rgba(55,158,255,.2);
-
-  box-shadow:0 0 22px rgba(0,130,255,.08);
-
-  font-size:18px;
-}
-
-.card h3{
-  font-size:16px;
-  margin-bottom:9px;
-}
-
-.card p{
-  color:#7c8a9c;
-
-  font-size:12px;
-  line-height:1.7;
-}
-
-/* ===============================
-   STEPS
-================================ */
-
-.steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-
-  gap:15px;
-
-  margin-top:43px;
-}
-
-.step{
-  padding:25px 20px;
-
-  border-left:1px solid rgba(45,155,255,.25);
-}
-
-.step-number{
-  color:#42bcff;
-
-  font-size:10px;
-  font-weight:900;
-
-  letter-spacing:2px;
-}
-
-.step h3{
-  margin-top:15px;
-
-  font-size:16px;
-}
-
-.step p{
-  margin-top:9px;
-
-  color:#7c8a9b;
-
-  font-size:11px;
-  line-height:1.7;
-}
-
-/* ===============================
-   FORMS
-================================ */
-
-.forms{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-
-  gap:18px;
-
-  margin-top:40px;
-}
-
-.form-card{
-  padding:30px;
-
-  border:1px solid var(--line);
-
-  border-radius:16px;
-
-  background:rgba(7,14,23,.76);
-
-  box-shadow:0 0 50px rgba(0,100,255,.055);
-}
-
-.form-card h3{
-  font-size:22px;
-  margin-bottom:8px;
-}
-
-.form-card > p{
-  color:#7e8c9e;
-
-  font-size:11px;
-  line-height:1.65;
-
-  margin-bottom:23px;
-}
-
-.group{
-  margin-bottom:13px;
-}
-
-label{
-  display:block;
-
-  color:#9faebf;
-
-  font-size:10px;
-  font-weight:800;
-
-  margin-bottom:7px;
-}
-
-input,
-select,
-textarea{
-  width:100%;
-
-  padding:13px 14px;
-
-  border-radius:8px;
-
-  border:1px solid rgba(75,145,210,.14);
-
-  outline:none;
-
-  background:#040911;
-
-  color:white;
-
-  font:inherit;
-  font-size:12px;
-
-  transition:.25s;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:rgba(40,160,255,.65);
-
-  box-shadow:
-    0 0 0 3px rgba(0,125,255,.07),
-    0 0 25px rgba(0,125,255,.1);
-}
-
-textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.check{
-  display:flex;
-  gap:8px;
-
-  margin:14px 0 18px;
-
-  color:#758497;
-
-  font-size:9px;
-
-  line-height:1.5;
-}
-
-.check input{
-  width:auto;
-  margin-top:2px;
-
-  accent-color:#118cff;
-}
-
-/* ===============================
-   CTA
-================================ */
-
-.cta{
-  padding:110px 6%;
-}
-
-.cta-box{
-  position:relative;
-  overflow:hidden;
-
-  padding:75px 25px;
-
-  text-align:center;
-
-  border:1px solid rgba(50,160,255,.22);
-
-  border-radius:20px;
-
-  background:
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(0,130,255,.19),
-      transparent 52%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(8,18,30,.92),
-      rgba(2,6,11,.96)
-    );
-
-  box-shadow:0 0 75px rgba(0,105,255,.08);
-}
-
-.cta-box::before{
-  content:"";
-
-  position:absolute;
-
-  width:600px;
-  height:120px;
-
-  left:50%;
-  top:-80px;
-
-  transform:translateX(-50%);
-
-  background:#008cff;
-
-  filter:blur(80px);
-
-  opacity:.2;
-}
-
-.cta h2{
-  position:relative;
-
-  font-size:clamp(37px,6vw,66px);
-
-  letter-spacing:-3px;
-
-  font-weight:900;
-}
-
-.cta p{
-  position:relative;
-
-  max-width:550px;
-
-  margin:17px auto 28px;
-
-  color:#8291a3;
-
-  font-size:12px;
-  line-height:1.7;
-}
-
-/* ===============================
-   FOOTER
-================================ */
-
-footer{
-  padding:27px 6%;
-
-  display:flex;
-  justify-content:space-between;
-
-  gap:20px;
-
-  border-top:1px solid rgba(65,150,255,.08);
-
-  color:#627184;
-
-  font-size:10px;
-}
-
-footer strong{
-  color:#9baabc;
-}
-
-/* ===============================
-   MOBILE
-================================ */
-
-@media(max-width:850px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .feature-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .steps{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .forms{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:600px){
-
-  nav{
-    padding:14px 5%;
-  }
-
-  .nav-btn{
-    padding:9px 12px;
-  }
-
-  .hero{
-    padding:125px 6% 70px;
-  }
-
-  .hero h1{
-    font-size:54px;
-    letter-spacing:-3px;
-  }
-
-  .hero p{
-    font-size:13px;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .btn{
-    width:100%;
-  }
-
-  section{
-    padding:78px 5%;
-  }
-
-  .feature-grid,
-  .steps{
-    grid-template-columns:1fr;
-  }
-
-  .demo-top{
-    flex-direction:column;
-  }
-
-  .demo-grid{
-    grid-template-columns:1fr;
-  }
-
-  .form-card{
-    padding:22px;
-  }
-
-  footer{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .intro-name{
-    font-size:25px;
-  }
-
-  .intro-mark{
-    width:58px;
-    height:58px;
-  }
-}
-</style>
 </head>
+
 
 <body>
 
-<!-- ===============================
-     CINEMATIC BACKGROUND
-================================ -->
 
-<div class="bg">
-  <div class="grid"></div>
-  <div class="particles"></div>
+  <!-- =================================
+       GLOBAL BACKGROUND
+  ================================== -->
 
-  <div class="sweep"></div>
-  <div class="sweep two"></div>
+  <div class="zorvan-bg">
 
-  <div class="ray one"></div>
-  <div class="ray two"></div>
-</div>
+    <div class="bg-glow"></div>
+
+    <div class="bg-grid"></div>
+
+    <div class="bg-sweep"></div>
+
+    <div class="energy-line left"></div>
+
+    <div class="energy-line right"></div>
+
+    <div class="side-rail left"></div>
+
+    <div class="side-rail right"></div>
+
+  </div>
 
 
-<!-- ===============================
-     LOGO INTRO
-================================ -->
+  <!-- =================================
+       NAVIGATION
+  ================================== -->
 
-<div class="intro">
+  <header class="z-nav">
 
-  <div class="intro-content">
-
-    <div class="intro-mark">
-      <span>Z</span>
-    </div>
-
-    <div class="intro-name">
+    <a
+      href="#home"
+      class="z-logo"
+    >
       ZORVAN
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ===============================
-     NAVBAR
-================================ -->
-
-<nav>
-
-  <a href="#" class="logo">
-
-    <div class="logo-icon">
-      <span>Z</span>
-    </div>
-
-    <span class="logo-text">
-      ZORVAN
-    </span>
-
-  </a>
-
-  <div class="nav-links">
-    <a href="#about">ABOUT</a>
-    <a href="#tournaments">TOURNAMENTS</a>
-    <a href="#features">FEATURES</a>
-    <a href="#staff">STAFF</a>
-  </div>
-
-  <a href="#register" class="nav-btn">
-    PRE-REGISTER
-  </a>
-
-</nav>
-
-
-<!-- ===============================
-     HERO
-================================ -->
-
-<header class="hero">
-
-  <div class="hero-content">
-
-    <div class="eyebrow">
-      <span class="dot"></span>
-      THE NEXT ERA OF ESPORTS
-    </div>
-
-    <h1>
-      PLAY.<br>
-      COMPETE.<br>
-      <span>RISE.</span>
-    </h1>
-
-    <p>
-      ZORVAN is building a competitive esports platform
-      for players who want more than just another match.
-      Build your identity, compete and rise with the community.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a href="#register" class="btn btn-primary">
-        JOIN THE LAUNCH →
-      </a>
-
-      <a href="#tournaments" class="btn btn-secondary">
-        VIEW DEMO TOURNAMENT
-      </a>
-
-    </div>
-
-  </div>
-
-</header>
-
-
-<!-- ===============================
-     ABOUT
-================================ -->
-
-<section id="about">
-
-  <div class="label">
-    01 / ABOUT ZORVAN
-  </div>
-
-  <h2 class="title">
-    BUILT FOR<br>
-    COMPETITORS.
-  </h2>
-
-  <p class="sub">
-    ZORVAN is focused on creating a cleaner and more competitive
-    esports experience — bringing tournaments, player identity,
-    teams, leaderboards and community features together.
-  </p>
-
-</section>
-
-
-<!-- ===============================
-     DEMO TOURNAMENT
-================================ -->
-
-<section id="tournaments">
-
-  <div class="label">
-    02 / TOURNAMENT SHOWCASE
-  </div>
-
-  <h2 class="title">
-    SEE THE EXPERIENCE.
-  </h2>
-
-  <p class="sub">
-    This is a visual demonstration of how tournaments may appear
-    on ZORVAN. It is not a live tournament.
-  </p>
-
-
-  <div class="demo-card">
-
-    <div class="demo-inner">
-
-      <div class="demo-top">
-
-        <div>
-
-          <span class="demo-badge">
-            DEMO
-          </span>
-
-          <div class="demo-title">
-            ZORVAN CLASH #01
-          </div>
-
-          <div class="demo-meta">
-            Free Fire • Squad • Competitive Showcase
-          </div>
-
-        </div>
-
-        <div style="
-          color:#5fc3ff;
-          font-size:10px;
-          font-weight:900;
-        ">
-          PREVIEW ONLY
-        </div>
-
-      </div>
-
-
-      <div class="demo-grid">
-
-        <div class="demo-stat">
-          <small>FORMAT</small>
-          <strong>Squad</strong>
-        </div>
-
-        <div class="demo-stat">
-          <small>ENTRY</small>
-          <strong>Demo Entry</strong>
-        </div>
-
-        <div class="demo-stat">
-          <small>STATUS</small>
-          <strong>Not Live</strong>
-        </div>
-
-      </div>
-
-
-      <div style="margin-top:22px">
-
-        <button
-          class="btn btn-primary"
-          onclick="demoTournament()"
-        >
-          VIEW DEMO
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ===============================
-     FEATURES
-================================ -->
-
-<section id="features">
-
-  <div class="label">
-    03 / PLATFORM
-  </div>
-
-  <h2 class="title">
-    MORE THAN<br>
-    A TOURNAMENT.
-  </h2>
-
-  <p class="sub">
-    A competitive ecosystem where your player identity,
-    matches and community experience can grow together.
-  </p>
-
-
-  <div class="feature-grid">
-
-    <div class="card">
-      <div class="icon">⚡</div>
-      <h3>Competitive Tournaments</h3>
-      <p>
-        Discover structured competitions and compete
-        against players and teams.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">◈</div>
-      <h3>Player Profiles</h3>
-      <p>
-        Build your esports identity with your IGN,
-        UID, profile and competitive presence.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">◆</div>
-      <h3>Leaderboards</h3>
-      <p>
-        Track performance, rankings and competitive
-        progress as the platform grows.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">◎</div>
-      <h3>Teams & Community</h3>
-      <p>
-        Connect with players, build teams and become
-        part of the ZORVAN community.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">⌁</div>
-      <h3>Matches</h3>
-      <p>
-        Keep your competitive journey organized with
-        match-focused experiences.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">↯</div>
-      <h3>Updates & Notifications</h3>
-      <p>
-        Stay informed about important platform
-        and competition updates.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ===============================
-     HOW IT WORKS
-================================ -->
-
-<section>
-
-  <div class="label">
-    04 / HOW IT WORKS
-  </div>
-
-  <h2 class="title">
-    YOUR JOURNEY<br>
-    STARTS HERE.
-  </h2>
-
-
-  <div class="steps">
-
-    <div class="step">
-      <div class="step-number">01</div>
-      <h3>REGISTER</h3>
-      <p>
-        Join the ZORVAN launch community with your
-        basic player details.
-      </p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">02</div>
-      <h3>BUILD PROFILE</h3>
-      <p>
-        Create your player identity and represent
-        yourself competitively.
-      </p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">03</div>
-      <h3>COMPETE</h3>
-      <p>
-        Discover tournaments and compete when
-        the platform launches.
-      </p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">04</div>
-      <h3>RISE</h3>
-      <p>
-        Improve, connect and climb through
-        the competitive ecosystem.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ===============================
-     REGISTRATION + STAFF
-================================ -->
-
-<section id="register">
-
-  <div class="label">
-    05 / EARLY ACCESS
-  </div>
-
-  <h2 class="title">
-    BE THERE<br>
-    FROM DAY ONE.
-  </h2>
-
-  <p class="sub">
-    Early registration helps us understand the community
-    and prepare the ZORVAN launch experience.
-  </p>
-
-
-  <div class="forms">
-
-
-    <!-- PLAYER -->
-
-    <div class="form-card">
-
-      <h3>
-        Player Pre-Registration
-      </h3>
-
-      <p>
-        Register your interest for the ZORVAN launch.
-        Your information will not be displayed publicly.
-      </p>
-
-
-      <form onsubmit="submitPlayer(event)">
-
-        <div class="group">
-          <label>FULL NAME</label>
-          <input
-            type="text"
-            placeholder="Your full name"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>PHONE NUMBER</label>
-          <input
-            type="tel"
-            placeholder="Your phone number"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>FREE FIRE IGN</label>
-          <input
-            type="text"
-            placeholder="Your in-game name"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>FREE FIRE UID</label>
-          <input
-            type="text"
-            placeholder="Your game UID"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>STATE / REGION — OPTIONAL</label>
-          <input
-            type="text"
-            placeholder="Your state or region"
-          >
-        </div>
-
-        <label class="check">
-          <input type="checkbox" required>
-
-          <span>
-            I confirm that the information provided is accurate
-            and I agree to the applicable ZORVAN terms.
-          </span>
-
-        </label>
-
-        <button class="btn btn-primary" type="submit">
-          PRE-REGISTER →
-        </button>
-
-      </form>
-
-    </div>
-
-
-    <!-- STAFF -->
-
-    <div class="form-card" id="staff">
-
-      <h3>
-        Join The Staff
-      </h3>
-
-      <p>
-        Interested in helping build ZORVAN?
-        Submit your application for review.
-      </p>
-
-
-      <form onsubmit="submitStaff(event)">
-
-        <div class="group">
-          <label>FULL NAME</label>
-          <input
-            type="text"
-            placeholder="Your full name"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>AGE</label>
-          <input
-            type="number"
-            min="13"
-            placeholder="Your age"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>EMAIL</label>
-          <input
-            type="email"
-            placeholder="Your email"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>CITY / STATE</label>
-          <input
-            type="text"
-            placeholder="Your location"
-            required
-          >
-        </div>
-
-        <div class="group">
-          <label>PREFERRED ROLE</label>
-
-          <select required>
-
-            <option value="">
-              Select a role
-            </option>
-
-            <option>
-              Tournament Moderator
-            </option>
-
-            <option>
-              Tournament Manager
-            </option>
-
-            <option>
-              Player Support
-            </option>
-
-            <option>
-              Community Moderator
-            </option>
-
-            <option>
-              Content / Social Media
-            </option>
-
-            <option>
-              Graphic Designer
-            </option>
-
-            <option>
-              Video Editor
-            </option>
-
-            <option>
-              Technical / Web Support
-            </option>
-
-            <option>
-              Operations
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="group">
-          <label>EXPERIENCE</label>
-
-          <textarea
-            placeholder="Tell us about your experience"
-          ></textarea>
-
-        </div>
-
-
-        <label class="check">
-
-          <input type="checkbox" required>
-
-          <span>
-            I understand that submitting this application
-            does not guarantee selection or staff access.
-          </span>
-
-        </label>
-
-
-        <button class="btn btn-secondary" type="submit">
-          SUBMIT APPLICATION →
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ===============================
-     FINAL CTA
-================================ -->
-
-<section class="cta">
-
-  <div class="cta-box">
-
-    <h2>
-      READY TO RISE?
-    </h2>
-
-    <p>
-      ZORVAN is being built for the next generation
-      of competitors. Join early and be part of the journey.
-    </p>
-
-    <a href="#register" class="btn btn-primary">
-      JOIN ZORVAN →
     </a>
 
-  </div>
+
+    <nav class="z-nav-links">
+
+      <a href="#home">HOME</a>
+
+      <a href="#about">ABOUT</a>
+
+      <a href="#features">FEATURES</a>
+
+      <a href="#journey">HOW IT WORKS</a>
+
+      <a href="#register">REGISTER</a>
+
+    </nav>
+
+
+    <a
+      href="#register"
+      class="z-nav-button"
+    >
+      JOIN EARLY
+    </a>
+
+  </header>
+
+
+  <!-- PART 9 CLEAN STRUCTURE END -->
+
+  <!--
+    IMPORTANT:
+    Paste PART 2 directly below this comment.
+    Then PART 3, PART 4, PART 5, PART 6, PART 7 and PART 8.
+
+    DO NOT add </body> or </html> here.
+    They must remain only at the very end of PART 8.
+  -->
+
+
+
+<!-- =====================================================
+     ZORVAN — PART 2
+     HERO SECTION
+===================================================== -->
+
+<style>
+
+.z-hero{
+    min-height:100vh;
+    width:100%;
+
+    padding:
+        150px 7% 90px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+}
+
+
+/* HERO CONTENT */
+
+.z-hero-inner{
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 250px;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+
+/* SMALL LABEL */
+
+.z-hero-label{
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:22px;
+
+    color:#4cc8ff;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:2.5px;
+}
+
+
+.z-hero-label::before{
+    content:"";
+
+    width:30px;
+    height:1px;
+
+    background:#42c5ff;
+
+    box-shadow:
+        0 0 14px #008cff;
+}
+
+
+/* MAIN TITLE */
+
+.z-hero-title{
+    margin:0;
+
+    font-size:
+        clamp(55px,9vw,105px);
+
+    line-height:.86;
+
+    font-weight:1000;
+
+    letter-spacing:-5px;
+
+    text-transform:uppercase;
+}
+
+
+.z-hero-title .blue{
+    color:#3fc3ff;
+
+    text-shadow:
+        0 0 35px rgba(0,150,255,.25);
+}
+
+
+.z-hero-title .outline{
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px rgba(215,240,255,.55);
+}
+
+
+/* DESCRIPTION */
+
+.z-hero-description{
+    max-width:570px;
+
+    margin-top:28px;
+
+    color:#8293a3;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* BUTTON AREA */
+
+.z-hero-buttons{
+    display:flex;
+
+    gap:13px;
+
+    margin-top:34px;
+
+    flex-wrap:wrap;
+}
+
+
+.z-hero-btn{
+    min-width:155px;
+
+    padding:15px 21px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:7px;
+
+    text-decoration:none;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+.z-hero-btn.primary{
+    color:#021019;
+
+    background:#42c6ff;
+
+    box-shadow:
+        0 0 28px rgba(0,150,255,.25);
+}
+
+
+.z-hero-btn.secondary{
+    color:#dcefff;
+
+    background:
+        rgba(8,27,43,.65);
+
+    border:
+        1px solid rgba(65,180,255,.30);
+}
+
+
+.z-hero-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 38px rgba(0,150,255,.30);
+}
+
+
+.z-hero-btn:active{
+    transform:
+        scale(.95);
+}
+
+
+/* BUTTON LIGHT SWEEP */
+
+.z-hero-btn::after{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-130%;
+
+    width:70%;
+    height:100%;
+
+    transform:skewX(-20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.40),
+            transparent
+        );
+
+    transition:.55s;
+}
+
+
+.z-hero-btn:hover::after{
+    left:150%;
+}
+
+
+/* =====================================================
+   HERO TECH PANEL
+===================================================== */
+
+.z-tech-panel{
+    width:100%;
+
+    padding:22px;
+
+    border-left:
+        1px solid rgba(55,185,255,.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(10,29,47,.48),
+            rgba(2,7,12,.30)
+        );
+
+    position:relative;
+}
+
+
+.z-tech-panel::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-1px;
+
+    width:35px;
+    height:1px;
+
+    background:#42c5ff;
+
+    box-shadow:
+        0 0 15px #008cff;
+}
+
+
+.z-tech-title{
+    margin-bottom:18px;
+
+    color:#4bc5ff;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+
+.z-tech-item{
+    padding:14px 0;
+
+    border-bottom:
+        1px solid rgba(120,170,200,.08);
+}
+
+
+.z-tech-item:last-child{
+    border-bottom:0;
+}
+
+
+.z-tech-item small{
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#526a7d;
+
+    font-size:7px;
+
+    letter-spacing:1.5px;
+}
+
+
+.z-tech-item strong{
+    color:#dceeff;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+.z-online{
+    color:#42c7ff !important;
+}
+
+
+/* =====================================================
+   HERO DECORATION
+===================================================== */
+
+.z-hero-orbit{
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    right:-210px;
+    bottom:-220px;
+
+    border:
+        1px solid rgba(0,150,255,.08);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 80px rgba(0,100,255,.04);
+}
+
+
+.z-hero-orbit::before{
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    left:20%;
+    top:14%;
+
+    border-radius:50%;
+
+    background:#42c7ff;
+
+    box-shadow:
+        0 0 15px #008cff,
+        0 0 35px rgba(0,150,255,.5);
+}
+
+
+/* =====================================================
+   MOBILE HERO
+===================================================== */
+
+@media(max-width:700px){
+
+    .z-hero{
+        min-height:auto;
+
+        padding:
+            145px 8% 80px;
+    }
+
+
+    .z-hero-inner{
+        display:block;
+    }
+
+
+    .z-hero-title{
+        font-size:
+            clamp(48px,15vw,72px);
+
+        letter-spacing:-3px;
+    }
+
+
+    .z-hero-description{
+        font-size:13px;
+
+        line-height:1.75;
+
+        margin-top:24px;
+    }
+
+
+    .z-hero-buttons{
+        flex-direction:column;
+
+        width:100%;
+
+        margin-top:28px;
+    }
+
+
+    .z-hero-btn{
+        width:100%;
+    }
+
+
+    .z-tech-panel{
+        margin-top:45px;
+
+        border-left:0;
+
+        border-top:
+            1px solid rgba(55,185,255,.30);
+    }
+
+
+    .z-hero-orbit{
+        width:280px;
+        height:280px;
+
+        right:-170px;
+        bottom:-140px;
+    }
+
+}
+
+</style>
+
+
+<section class="z-hero" id="home">
+
+    <div class="z-hero-inner">
+
+
+        <!-- HERO MAIN -->
+
+        <div class="z-hero-main">
+
+            <div class="z-hero-label">
+                ZORVAN // COMPETITIVE NETWORK
+            </div>
+
+
+            <h1 class="z-hero-title">
+
+                <span>PLAY.</span>
+
+                <span class="blue">
+                    COMPETE.
+                </span>
+
+                <span class="outline">
+                    RISE.
+                </span>
+
+            </h1>
+
+
+            <p class="z-hero-description">
+                ZORVAN is being built for competitive
+                players who want to compete, connect,
+                build their identity and rise through
+                the esports journey.
+            </p>
+
+
+            <div class="z-hero-buttons">
+
+                <a
+                    href="#register"
+                    class="z-hero-btn primary"
+                >
+                    PRE-REGISTER
+                </a>
+
+
+                <a
+                    href="#tournaments"
+                    class="z-hero-btn secondary"
+                >
+                    EXPLORE ZORVAN
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- TECHNICAL PANEL -->
+
+        <div class="z-tech-panel">
+
+            <div class="z-tech-title">
+                SYSTEM // ZV-01
+            </div>
+
+
+            <div class="z-tech-item">
+
+                <small>
+                    NETWORK
+                </small>
+
+                <strong class="z-online">
+                    ONLINE
+                </strong>
+
+            </div>
+
+
+            <div class="z-tech-item">
+
+                <small>
+                    PLATFORM
+                </small>
+
+                <strong>
+                    ZORVAN
+                </strong>
+
+            </div>
+
+
+            <div class="z-tech-item">
+
+                <small>
+                    MODE
+                </small>
+
+                <strong>
+                    COMPETE
+                </strong>
+
+            </div>
+
+
+            <div class="z-tech-item">
+
+                <small>
+                    STATUS
+                </small>
+
+                <strong class="z-online">
+                    BUILDING
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="z-hero-orbit"></div>
 
 </section>
 
 
-<!-- ===============================
+
+<!-- =====================================================
+     PART 2 END
+===================================================== -->
+
+<!-- =====================================================
+     ZORVAN — PART 3
+     ABOUT + DEMO TOURNAMENT
+===================================================== -->
+
+<style>
+
+/* =====================================================
+   ABOUT SECTION
+===================================================== */
+
+.z-about{
+    width:100%;
+
+    padding:
+        105px 7% 90px;
+
+    position:relative;
+}
+
+
+.z-section-inner{
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+}
+
+
+.z-section-label{
+    color:#43c6ff;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:2.5px;
+
+    margin-bottom:17px;
+}
+
+
+.z-section-title{
+    max-width:750px;
+
+    font-size:
+        clamp(34px,5.5vw,62px);
+
+    line-height:.95;
+
+    font-weight:950;
+
+    letter-spacing:-2.8px;
+
+    text-transform:uppercase;
+}
+
+
+.z-section-title span{
+    color:#43c6ff;
+
+    text-shadow:
+        0 0 25px rgba(0,150,255,.20);
+}
+
+
+/* =====================================================
+   ABOUT GRID
+===================================================== */
+
+.z-about-grid{
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.25fr .75fr;
+
+    gap:22px;
+}
+
+
+.z-about-card{
+    min-height:270px;
+
+    padding:31px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        1px solid rgba(60,170,255,.13);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(10,27,43,.65),
+            rgba(3,7,12,.78)
+        );
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.z-about-card:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(60,190,255,.30);
+
+    box-shadow:
+        0 15px 45px rgba(0,80,180,.08);
+}
+
+
+.z-about-card::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:80px;
+    height:1px;
+
+    background:#43c6ff;
+
+    box-shadow:
+        0 0 18px #008cff;
+}
+
+
+.z-about-card h3{
+    max-width:500px;
+
+    font-size:17px;
+
+    line-height:1.3;
+
+    letter-spacing:.3px;
+}
+
+
+.z-about-card p{
+    max-width:620px;
+
+    margin-top:18px;
+
+    color:#8293a3;
+
+    font-size:13px;
+
+    line-height:1.85;
+}
+
+
+/* =====================================================
+   SYSTEM CARD
+===================================================== */
+
+.z-system-card{
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+}
+
+
+.z-system-label{
+    color:#536b7c;
+
+    font-size:7px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+
+.z-system-main{
+    margin-top:30px;
+
+    font-size:31px;
+
+    line-height:1;
+
+    font-weight:950;
+
+    letter-spacing:-1.5px;
+}
+
+
+.z-system-main span{
+    color:#43c6ff;
+}
+
+
+.z-system-line{
+    width:100%;
+
+    height:2px;
+
+    margin-top:22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #43c6ff,
+            transparent
+        );
+
+    opacity:.55;
+}
+
+
+.z-system-status{
+    margin-top:22px;
+
+    color:#536b7c;
+
+    font-size:7px;
+
+    line-height:1.8;
+
+    letter-spacing:1.5px;
+}
+
+
+.z-system-status strong{
+    color:#43c6ff;
+}
+
+
+/* =====================================================
+   DEMO TOURNAMENT SECTION
+===================================================== */
+
+.z-demo{
+    width:100%;
+
+    padding:
+        20px 7% 115px;
+}
+
+
+.z-demo-card{
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:31px;
+
+    border:
+        1px solid rgba(60,180,255,.18);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(8,27,45,.78),
+            rgba(2,7,12,.90)
+        );
+
+    box-shadow:
+        0 20px 70px rgba(0,70,160,.06);
+}
+
+
+.z-demo-card::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:120px;
+    height:1px;
+
+    background:#43c6ff;
+
+    box-shadow:
+        0 0 20px #008cff;
+}
+
+
+.z-demo-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    right:-170px;
+    top:-180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,145,255,.14),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+
+/* Demo header */
+
+.z-demo-header{
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    margin-bottom:35px;
+}
+
+
+.z-demo-badge{
+    display:inline-block;
+
+    padding:6px 10px;
+
+    margin-bottom:14px;
+
+    color:#51caff;
+
+    border:
+        1px solid rgba(65,190,255,.35);
+
+    background:
+        rgba(0,120,255,.07);
+
+    font-size:7px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+
+.z-demo-title{
+    font-size:
+        clamp(27px,4.5vw,48px);
+
+    line-height:1;
+
+    font-weight:950;
+
+    letter-spacing:-1.8px;
+
+    text-transform:uppercase;
+}
+
+
+.z-demo-title span{
+    color:#43c6ff;
+}
+
+
+.z-demo-status{
+    text-align:right;
+
+    color:#63798a;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    line-height:1.8;
+
+    letter-spacing:1.5px;
+}
+
+
+.z-demo-status strong{
+    color:#43c6ff;
+}
+
+
+/* Demo information */
+
+.z-demo-info{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    border-top:
+        1px solid rgba(100,160,190,.09);
+}
+
+
+.z-demo-item{
+    padding:
+        21px 16px;
+
+    border-right:
+        1px solid rgba(100,160,190,.09);
+}
+
+
+.z-demo-item:last-child{
+    border-right:0;
+}
+
+
+.z-demo-item small{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#536b7c;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+}
+
+
+.z-demo-item strong{
+    color:#dcefff;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:.8px;
+}
+
+
+/* Preview note */
+
+.z-demo-note{
+    margin-top:25px;
+
+    color:#526a7c;
+
+    font-size:8px;
+
+    line-height:1.7;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .z-about{
+        padding:
+            75px 8% 65px;
+    }
+
+
+    .z-section-title{
+        font-size:
+            clamp(34px,10vw,48px);
+
+        letter-spacing:-2px;
+    }
+
+
+    .z-about-grid{
+        grid-template-columns:1fr;
+
+        margin-top:32px;
+    }
+
+
+    .z-about-card{
+        min-height:auto;
+
+        padding:24px;
+    }
+
+
+    .z-about-card h3{
+        font-size:15px;
+    }
+
+
+    .z-about-card p{
+        font-size:12px;
+
+        line-height:1.8;
+    }
+
+
+    .z-system-main{
+        font-size:27px;
+
+        margin-top:35px;
+    }
+
+
+    .z-demo{
+        padding:
+            15px 8% 80px;
+    }
+
+
+    .z-demo-card{
+        padding:24px;
+    }
+
+
+    .z-demo-header{
+        flex-direction:column;
+
+        margin-bottom:25px;
+    }
+
+
+    .z-demo-status{
+        text-align:left;
+    }
+
+
+    .z-demo-info{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .z-demo-item{
+        min-height:78px;
+    }
+
+
+    .z-demo-item:nth-child(2){
+        border-right:0;
+    }
+
+
+    .z-demo-item:nth-child(3),
+    .z-demo-item:nth-child(4){
+        border-top:
+            1px solid rgba(100,160,190,.09);
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================================
+     ABOUT ZORVAN
+===================================================== -->
+
+<section
+    class="z-about"
+    id="about"
+>
+
+    <div class="z-section-inner">
+
+
+        <div class="z-section-label">
+            001 // ABOUT ZORVAN
+        </div>
+
+
+        <h2 class="z-section-title">
+            BUILT FOR
+            <span>COMPETITION.</span>
+        </h2>
+
+
+        <div class="z-about-grid">
+
+
+            <!-- ABOUT CARD -->
+
+            <div class="z-about-card">
+
+                <h3>
+                    MORE THAN A TOURNAMENT PLATFORM.
+                </h3>
+
+
+                <p>
+                    ZORVAN is being built as a competitive
+                    esports platform focused on giving
+                    players a cleaner and more connected
+                    way to compete.
+                </p>
+
+
+                <p>
+                    From discovering competitions to
+                    building a player identity and following
+                    your competitive journey, ZORVAN is
+                    designed around the player.
+                </p>
+
+            </div>
+
+
+            <!-- SYSTEM CARD -->
+
+            <div class="
+                z-about-card
+                z-system-card
+            ">
+
+                <div class="z-system-label">
+                    ZORVAN // CORE SYSTEM
+                </div>
+
+
+                <div>
+
+                    <div class="z-system-main">
+
+                        PLAY.
+
+                        <span>
+                            COMPETE.
+                        </span>
+
+                        RISE.
+
+                    </div>
+
+
+                    <div class="z-system-line"></div>
+
+
+                    <div class="z-system-status">
+
+                        NETWORK<br>
+
+                        <strong>
+                            COMPETITIVE / PLAYER-FIRST
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DEMO TOURNAMENT
+===================================================== -->
+
+<section
+    class="z-demo"
+    id="tournaments"
+>
+
+    <div class="z-demo-card">
+
+
+        <div class="z-demo-header">
+
+            <div>
+
+                <div class="z-demo-badge">
+                    DEMO / PREVIEW ONLY
+                </div>
+
+
+                <h2 class="z-demo-title">
+
+                    ZORVAN
+                    <span>CLASH #01</span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="z-demo-status">
+
+                STATUS<br>
+
+                <strong>
+                    NOT LIVE
+                </strong>
+
+                <br>
+
+                UI PREVIEW
+
+            </div>
+
+        </div>
+
+
+        <div class="z-demo-info">
+
+
+            <div class="z-demo-item">
+
+                <small>
+                    GAME
+                </small>
+
+                <strong>
+                    FREE FIRE
+                </strong>
+
+            </div>
+
+
+            <div class="z-demo-item">
+
+                <small>
+                    FORMAT
+                </small>
+
+                <strong>
+                    BATTLE ROYALE
+                </strong>
+
+            </div>
+
+
+            <div class="z-demo-item">
+
+                <small>
+                    STATUS
+                </small>
+
+                <strong>
+                    PREVIEW
+                </strong>
+
+            </div>
+
+
+            <div class="z-demo-item">
+
+                <small>
+                    PLATFORM
+                </small>
+
+                <strong>
+                    ZORVAN
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="z-demo-note">
+
+            This tournament card is a visual demonstration
+            only. It is not a live tournament, registration,
+            prize pool or active competition.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PART 3 END
+===================================================== -->
+
+<!-- =====================================================
+     ZORVAN — PART 4
+     FEATURES
+===================================================== -->
+
+<style>
+
+/* =====================================================
+   FEATURES SECTION
+===================================================== */
+
+.z-features{
+    width:100%;
+    padding:20px 7% 110px;
+    position:relative;
+}
+
+.z-features-inner{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.z-features-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:30px;
+    margin-bottom:42px;
+}
+
+.z-features-sub{
+    max-width:360px;
+    color:#687d8e;
+    font-size:9px;
+    line-height:1.8;
+    letter-spacing:.5px;
+}
+
+
+/* =====================================================
+   FEATURE GRID
+===================================================== */
+
+.z-feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.z-feature-card{
+    min-height:205px;
+    padding:27px;
+    position:relative;
+    overflow:hidden;
+
+    border:1px solid rgba(60,170,255,.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,25,40,.62),
+            rgba(3,7,12,.78)
+        );
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.z-feature-card:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(65,195,255,.32);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,35,55,.72),
+            rgba(3,8,14,.86)
+        );
+
+    box-shadow:
+        0 18px 50px rgba(0,100,210,.07);
+}
+
+
+/* top line */
+
+.z-feature-card::before{
+    content:"";
+
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:55px;
+    height:1px;
+
+    background:#43c6ff;
+
+    box-shadow:
+        0 0 15px #008cff;
+}
+
+
+/* number */
+
+.z-feature-number{
+    color:#405667;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:30px;
+}
+
+
+/* icon */
+
+.z-feature-icon{
+    width:35px;
+    height:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:20px;
+
+    border:
+        1px solid rgba(65,190,255,.25);
+
+    color:#43c6ff;
+
+    font-size:13px;
+
+    background:
+        rgba(0,130,255,.05);
+
+    box-shadow:
+        inset 0 0 15px rgba(0,140,255,.04);
+}
+
+
+/* title */
+
+.z-feature-card h3{
+    font-size:13px;
+
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
+}
+
+
+/* description */
+
+.z-feature-card p{
+    margin-top:10px;
+
+    color:#667c8d;
+
+    font-size:9px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   FEATURE FOOTER LINE
+===================================================== */
+
+.z-feature-footer{
+    margin-top:18px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding-top:17px;
+
+    border-top:
+        1px solid rgba(100,160,190,.08);
+}
+
+.z-feature-footer span{
+    color:#435b6c;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+}
+
+.z-feature-footer strong{
+    color:#43c6ff;
+
+    font-size:7px;
+
+    letter-spacing:1.5px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .z-features{
+        padding:
+            10px 8% 80px;
+    }
+
+    .z-features-heading{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+        margin-bottom:30px;
+    }
+
+    .z-features-sub{
+        max-width:100%;
+    }
+
+    .z-feature-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .z-feature-card{
+        min-height:215px;
+        padding:21px;
+    }
+
+    .z-feature-number{
+        margin-bottom:24px;
+    }
+
+}
+
+@media(max-width:520px){
+
+    .z-feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .z-feature-card{
+        min-height:190px;
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section
+    class="z-features"
+    id="features"
+>
+
+    <div class="z-features-inner">
+
+
+        <div class="z-features-heading">
+
+            <div>
+
+                <div class="z-section-label">
+                    002 // PLATFORM
+                </div>
+
+                <h2 class="z-section-title">
+                    BUILT TO
+                    <span>COMPETE.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="z-features-sub">
+
+                Everything is being designed around
+                competitive players — from tournaments
+                and profiles to rankings, teams and
+                real-time updates.
+
+            </div>
+
+        </div>
+
+
+        <div class="z-feature-grid">
+
+
+            <!-- FEATURE 01 -->
+
+            <div class="z-feature-card">
+
+                <div class="z-feature-number">
+                    FEATURE / 01
+                </div>
+
+                <div class="z-feature-icon">
+                    //
+                </div>
+
+                <h3>
+                    Competitive Tournaments
+                </h3>
+
+                <p>
+                    Discover and join competitive
+                    tournaments through a cleaner
+                    player-focused experience.
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 02 -->
+
+            <div class="z-feature-card">
+
+                <div class="z-feature-number">
+                    FEATURE / 02
+                </div>
+
+                <div class="z-feature-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Player Identity
+                </h3>
+
+                <p>
+                    Build your own competitive profile
+                    with your IGN, UID, stats and
+                    player information.
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 03 -->
+
+            <div class="z-feature-card">
+
+                <div class="z-feature-number">
+                    FEATURE / 03
+                </div>
+
+                <div class="z-feature-icon">
+                    +
+                </div>
+
+                <h3>
+                    Matches & Competition
+                </h3>
+
+                <p>
+                    Keep track of your competitive
+                    matches and follow your journey
+                    across ZORVAN.
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 04 -->
+
+            <div class="z-feature-card">
+
+                <div class="z-feature-number">
+                    FEATURE / 04
+                </div>
+
+                <div class="z-feature-icon">
+                    #
+                </div>
+
+                <h3>
+                    Leaderboards
+                </h3>
+
+                <p>
+                    Rise through competitive rankings
+                    and build your presence inside the
+                    ZORVAN ecosystem.
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 05 -->
+
+            <div class="z-feature-card">
+
+                <div class="z-feature-number">
+                    FEATURE / 05
+                </div>
+
+                <div class="z-feature-icon">
+                    ∞
+                </div>
+
+                <h3>
+                    Teams & Community
+                </h3>
+
+                <p>
+                    Connect with players, discover
+                    teams and become part of a growing
+                    competitive community.
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE 06 -->
+
+            <div class="z-feature-card">
+
+                <div class="z-feature-number">
+                    FEATURE / 06
+                </div>
+
+                <div class="z-feature-icon">
+                    !
+                </div>
+
+                <h3>
+                    Updates & Notifications
+                </h3>
+
+                <p>
+                    Stay informed about tournaments,
+                    matches, announcements and
+                    important platform updates.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="z-feature-footer">
+
+            <span>
+                ZORVAN / SYSTEM MODULES
+            </span>
+
+            <strong>
+                06 ACTIVE CONCEPTS
+            </strong>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PART 4 END
+===================================================== -->
+
+<!-- =====================================================
+     ZORVAN — PART 5
+     HOW IT WORKS / PLAYER JOURNEY
+===================================================== -->
+
+<style>
+
+/* =====================================================
+   JOURNEY SECTION
+===================================================== */
+
+.z-journey{
+    width:100%;
+    padding:10px 7% 115px;
+    position:relative;
+}
+
+.z-journey-inner{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.z-journey-heading{
+    margin-bottom:55px;
+}
+
+
+/* =====================================================
+   JOURNEY TRACK
+===================================================== */
+
+.z-journey-track{
+    position:relative;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:0;
+}
+
+
+/* connecting line */
+
+.z-journey-track::before{
+    content:"";
+
+    position:absolute;
+
+    top:22px;
+    left:9%;
+    right:9%;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(67,198,255,.05),
+            rgba(67,198,255,.45),
+            rgba(67,198,255,.05)
+        );
+
+    box-shadow:
+        0 0 12px rgba(0,145,255,.15);
+}
+
+
+/* =====================================================
+   JOURNEY STEP
+===================================================== */
+
+.z-journey-step{
+    position:relative;
+
+    padding:
+        0 20px;
+
+    text-align:center;
+}
+
+
+/* node */
+
+.z-journey-node{
+    width:44px;
+    height:44px;
+
+    margin:
+        0 auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+    z-index:2;
+
+    border:
+        1px solid rgba(67,198,255,.35);
+
+    background:
+        #050b11;
+
+    color:#43c6ff;
+
+    font-size:9px;
+    font-weight:950;
+
+    box-shadow:
+        0 0 25px rgba(0,140,255,.10);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.z-journey-step:hover .z-journey-node{
+    transform:
+        scale(1.08);
+
+    border-color:
+        rgba(67,210,255,.75);
+
+    box-shadow:
+        0 0 30px rgba(0,150,255,.28);
+}
+
+
+/* step number */
+
+.z-journey-index{
+    color:#405869;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+}
+
+
+/* title */
+
+.z-journey-step h3{
+    font-size:15px;
+
+    font-weight:950;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
+}
+
+
+/* text */
+
+.z-journey-step p{
+    max-width:190px;
+
+    margin:
+        12px auto 0;
+
+    color:#63798a;
+
+    font-size:9px;
+
+    line-height:1.75;
+}
+
+
+/* =====================================================
+   JOURNEY BOTTOM PANEL
+===================================================== */
+
+.z-journey-panel{
+    margin-top:65px;
+
+    padding:24px 28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:25px;
+
+    border:
+        1px solid rgba(65,180,255,.12);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,24,39,.55),
+            rgba(3,8,13,.65)
+        );
+}
+
+
+.z-journey-panel-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+
+.z-journey-live{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#43c6ff;
+
+    box-shadow:
+        0 0 14px #008cff;
+}
+
+
+.z-journey-panel strong{
+    font-size:9px;
+
+    letter-spacing:1.3px;
+}
+
+
+.z-journey-panel span{
+    color:#536a7b;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .z-journey{
+        padding:
+            5px 8% 85px;
+    }
+
+    .z-journey-heading{
+        margin-bottom:38px;
+    }
+
+    .z-journey-track{
+        grid-template-columns:1fr;
+
+        gap:34px;
+
+        padding-left:7px;
+    }
+
+    .z-journey-track::before{
+        top:22px;
+        bottom:22px;
+
+        left:28px;
+        right:auto;
+
+        width:1px;
+        height:auto;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(67,198,255,.05),
+                rgba(67,198,255,.45),
+                rgba(67,198,255,.05)
+            );
+    }
+
+    .z-journey-step{
+        display:grid;
+
+        grid-template-columns:
+            44px 1fr;
+
+        column-gap:20px;
+
+        padding:0;
+
+        text-align:left;
+    }
+
+    .z-journey-node{
+        grid-row:span 3;
+
+        margin:0;
+    }
+
+    .z-journey-index{
+        margin:2px 0 7px;
+    }
+
+    .z-journey-step h3{
+        font-size:14px;
+    }
+
+    .z-journey-step p{
+        max-width:none;
+
+        margin:8px 0 0;
+
+        font-size:9px;
+    }
+
+    .z-journey-panel{
+        margin-top:45px;
+
+        padding:20px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media(max-width:420px){
+
+    .z-journey{
+        padding-left:8%;
+        padding-right:8%;
+    }
+
+    .z-journey-step{
+        column-gap:15px;
+    }
+
+    .z-journey-step h3{
+        font-size:13px;
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================================
+     PLAYER JOURNEY
+===================================================== -->
+
+<section
+    class="z-journey"
+    id="journey"
+>
+
+    <div class="z-journey-inner">
+
+
+        <div class="z-journey-heading">
+
+            <div class="z-section-label">
+                003 // HOW IT WORKS
+            </div>
+
+            <h2 class="z-section-title">
+                YOUR PATH TO
+                <span>COMPETITION.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="z-journey-track">
+
+
+            <!-- STEP 01 -->
+
+            <div class="z-journey-step">
+
+                <div class="z-journey-node">
+                    01
+                </div>
+
+                <div class="z-journey-index">
+                    START
+                </div>
+
+                <h3>
+                    Register
+                </h3>
+
+                <p>
+                    Create your ZORVAN account
+                    and secure your place in the
+                    growing player network.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 02 -->
+
+            <div class="z-journey-step">
+
+                <div class="z-journey-node">
+                    02
+                </div>
+
+                <div class="z-journey-index">
+                    BUILD
+                </div>
+
+                <h3>
+                    Build Profile
+                </h3>
+
+                <p>
+                    Set up your player identity
+                    with your IGN, UID and
+                    competitive information.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 03 -->
+
+            <div class="z-journey-step">
+
+                <div class="z-journey-node">
+                    03
+                </div>
+
+                <div class="z-journey-index">
+                    COMPETE
+                </div>
+
+                <h3>
+                    Compete
+                </h3>
+
+                <p>
+                    Discover competitions,
+                    enter matches and put your
+                    skills to the test.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 04 -->
+
+            <div class="z-journey-step">
+
+                <div class="z-journey-node">
+                    04
+                </div>
+
+                <div class="z-journey-index">
+                    RISE
+                </div>
+
+                <h3>
+                    Rise
+                </h3>
+
+                <p>
+                    Follow your progress,
+                    climb rankings and build
+                    your competitive journey.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- JOURNEY STATUS -->
+
+        <div class="z-journey-panel">
+
+            <div class="z-journey-panel-left">
+
+                <div class="z-journey-live"></div>
+
+                <strong>
+                    THE JOURNEY STARTS HERE
+                </strong>
+
+            </div>
+
+            <span>
+                ZORVAN / PLAYER-FIRST ECOSYSTEM
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PART 5 END
+===================================================== -->
+
+<!-- =====================================================
+     ZORVAN — PART 6
+     PRE-REGISTRATION + STAFF APPLICATION
+===================================================== -->
+
+<style>
+
+/* =====================================================
+   FORMS SECTION
+===================================================== */
+
+.z-forms{
+    width:100%;
+    padding:10px 7% 115px;
+    position:relative;
+}
+
+.z-forms-inner{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.z-forms-heading{
+    margin-bottom:45px;
+}
+
+
+/* =====================================================
+   LAUNCH BENEFIT
+===================================================== */
+
+.z-launch-banner{
+    position:relative;
+    overflow:hidden;
+
+    margin-bottom:18px;
+    padding:25px 28px;
+
+    border:
+        1px solid rgba(67,198,255,.20);
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(0,100,190,.11),
+            rgba(4,10,17,.72)
+        );
+}
+
+.z-launch-banner::before{
+    content:"";
+
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:110px;
+    height:1px;
+
+    background:#43c6ff;
+
+    box-shadow:
+        0 0 18px #008cff;
+}
+
+.z-launch-banner small{
+    display:block;
+
+    color:#536c7d;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:1.8px;
+
+    margin-bottom:9px;
+}
+
+.z-launch-banner strong{
+    display:block;
+
+    color:#dff5ff;
+
+    font-size:15px;
+    font-weight:950;
+
+    letter-spacing:.4px;
+}
+
+.z-launch-banner p{
+    margin-top:8px;
+
+    max-width:700px;
+
+    color:#687f90;
+
+    font-size:9px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.z-form-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:18px;
+}
+
+.z-form-card{
+    position:relative;
+
+    padding:29px;
+
+    border:
+        1px solid rgba(65,180,255,.13);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9,24,39,.66),
+            rgba(2,7,12,.86)
+        );
+
+    overflow:hidden;
+}
+
+.z-form-card::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:65px;
+    height:1px;
+
+    background:#43c6ff;
+
+    box-shadow:
+        0 0 16px #008cff;
+}
+
+
+/* =====================================================
+   FORM HEADER
+===================================================== */
+
+.z-form-number{
+    color:#40596a;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:17px;
+}
+
+.z-form-card h3{
+    font-size:24px;
+
+    line-height:1;
+
+    font-weight:950;
+
+    letter-spacing:-1px;
+
+    text-transform:uppercase;
+}
+
+.z-form-card h3 span{
+    color:#43c6ff;
+}
+
+.z-form-description{
+    margin-top:12px;
+
+    color:#647b8c;
+
+    font-size:9px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   FORM ELEMENTS
+===================================================== */
+
+.z-form{
+    margin-top:28px;
+}
+
+.z-input-group{
+    margin-bottom:13px;
+}
+
+.z-input-group label{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#708696;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+}
+
+.z-input-group input,
+.z-input-group textarea,
+.z-input-group select{
+    width:100%;
+
+    border:
+        1px solid rgba(90,150,185,.15);
+
+    outline:none;
+
+    border-radius:0;
+
+    padding:
+        13px 13px;
+
+    color:#dff4ff;
+
+    background:
+        rgba(1,7,12,.75);
+
+    font-family:inherit;
+
+    font-size:10px;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.z-input-group input::placeholder,
+.z-input-group textarea::placeholder{
+    color:#344957;
+}
+
+.z-input-group input:focus,
+.z-input-group textarea:focus,
+.z-input-group select:focus{
+    border-color:
+        rgba(67,198,255,.55);
+
+    background:
+        rgba(2,12,20,.90);
+
+    box-shadow:
+        0 0 0 1px rgba(67,198,255,.08),
+        0 0 22px rgba(0,130,255,.07);
+}
+
+.z-input-group textarea{
+    min-height:85px;
+
+    resize:vertical;
+}
+
+.z-input-group select{
+    appearance:none;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   TWO COLUMN INPUTS
+===================================================== */
+
+.z-input-row{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+}
+
+
+/* =====================================================
+   CHECKBOX
+===================================================== */
+
+.z-check{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:9px;
+
+    margin:
+        18px 0 20px;
+
+    color:#596f7f;
+
+    font-size:8px;
+
+    line-height:1.6;
+}
+
+.z-check input{
+    width:13px;
+    height:13px;
+
+    margin-top:1px;
+
+    accent-color:#43c6ff;
+
+    flex-shrink:0;
+}
+
+.z-check a{
+    color:#43c6ff;
+
+    text-decoration:none;
+}
+
+
+/* =====================================================
+   FORM BUTTON
+===================================================== */
+
+.z-form-button{
+    width:100%;
+
+    min-height:44px;
+
+    border:1px solid
+        rgba(67,198,255,.38);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,130,255,.13),
+            rgba(0,80,160,.04)
+        );
+
+    color:#dff7ff;
+
+    font-family:inherit;
+
+    font-size:8px;
+    font-weight:950;
+
+    letter-spacing:1.8px;
+
+    cursor:pointer;
+
+    transition:
+        transform .18s ease,
+        background .18s ease,
+        box-shadow .18s ease,
+        border-color .18s ease;
+}
+
+.z-form-button:hover{
+    border-color:
+        rgba(67,210,255,.75);
+
+    background:
+        rgba(0,135,255,.13);
+
+    box-shadow:
+        0 0 25px rgba(0,140,255,.12);
+}
+
+.z-form-button:active{
+    transform:scale(.975);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,145,255,.35),
+            rgba(0,90,190,.16)
+        );
+
+    border-color:#43c6ff;
+
+    box-shadow:
+        0 0 12px rgba(0,155,255,.45),
+        0 0 40px rgba(0,120,255,.20);
+}
+
+
+/* =====================================================
+   FORM FOOTER NOTE
+===================================================== */
+
+.z-form-note{
+    margin-top:12px;
+
+    color:#3f5667;
+
+    font-size:7px;
+
+    line-height:1.6;
+
+    letter-spacing:.3px;
+}
+
+
+/* =====================================================
+   STAFF FORM FULL WIDTH
+===================================================== */
+
+.z-staff-card{
+    margin-top:18px;
+}
+
+.z-staff-fields{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:0 13px;
+}
+
+.z-staff-fields
+.z-input-group:last-child{
+    grid-column:
+        1 / -1;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .z-forms{
+        padding:
+            5px 8% 85px;
+    }
+
+    .z-form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .z-form-card{
+        padding:24px;
+    }
+
+    .z-launch-banner{
+        padding:22px;
+    }
+
+    .z-staff-fields{
+        grid-template-columns:1fr;
+    }
+
+    .z-staff-fields
+    .z-input-group:last-child{
+        grid-column:auto;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .z-input-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .z-form-card h3{
+        font-size:21px;
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================================
+     PRE-REGISTRATION
+===================================================== -->
+
+<section
+    class="z-forms"
+    id="register"
+>
+
+    <div class="z-forms-inner">
+
+
+        <div class="z-forms-heading">
+
+            <div class="z-section-label">
+                004 // EARLY ACCESS
+            </div>
+
+            <h2 class="z-section-title">
+                GET IN
+                <span>EARLY.</span>
+            </h2>
+
+        </div>
+
+
+        <!-- LAUNCH BENEFIT -->
+
+        <div class="z-launch-banner">
+
+            <small>
+                EARLY REGISTRATION BENEFIT
+            </small>
+
+            <strong>
+                Be there from DAY ONE.
+            </strong>
+
+            <p>
+                Eligible early registrants may receive
+                access to up to 5 free tournaments after
+                launch, subject to ZORVAN eligibility
+                rules and terms.
+            </p>
+
+        </div>
+
+
+        <div class="z-form-grid">
+
+
+            <!-- PLAYER REGISTRATION -->
+
+            <div class="z-form-card">
+
+                <div class="z-form-number">
+                    FORM / 01
+                </div>
+
+                <h3>
+                    PLAYER
+                    <span>PRE-REGISTER</span>
+                </h3>
+
+                <p class="z-form-description">
+                    Register your interest before ZORVAN
+                    officially launches.
+                </p>
+
+
+                <form
+                    class="z-form"
+                    onsubmit="return false;"
+                >
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-row">
+
+                        <div class="z-input-group">
+
+                            <label>
+                                Free Fire IGN
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Your IGN"
+                            >
+
+                        </div>
+
+
+                        <div class="z-input-group">
+
+                            <label>
+                                Free Fire UID
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Your UID"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            State / Region
+                            <span>(Optional)</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Example: Bihar"
+                        >
+
+                    </div>
+
+
+                    <label class="z-check">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <span>
+                            I confirm that the information
+                            submitted is accurate and I agree
+                            to the applicable ZORVAN terms.
+                        </span>
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="z-form-button"
+                    >
+                        PRE-REGISTER
+                    </button>
+
+
+                    <div class="z-form-note">
+                        Your phone number and UID are not
+                        intended to be displayed publicly.
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- WHY REGISTER -->
+
+            <div class="z-form-card">
+
+                <div class="z-form-number">
+                    EARLY NETWORK / 01
+                </div>
+
+                <h3>
+                    BUILD YOUR
+                    <span>PLACE.</span>
+                </h3>
+
+                <p class="z-form-description">
+                    Early registration helps us understand
+                    the player community and prepare the
+                    platform for launch.
+                </p>
+
+
+                <div style="
+                    margin-top:32px;
+                    border-top:1px solid rgba(100,160,190,.08);
+                ">
+
+                    <div style="
+                        padding:18px 0;
+                        border-bottom:1px solid rgba(100,160,190,.08);
+                    ">
+
+                        <div style="
+                            color:#43c6ff;
+                            font-size:8px;
+                            font-weight:900;
+                            letter-spacing:1.4px;
+                        ">
+                            01 / FIRST WAVE
+                        </div>
+
+                        <div style="
+                            margin-top:7px;
+                            color:#647b8c;
+                            font-size:9px;
+                            line-height:1.6;
+                        ">
+                            Join the early ZORVAN player
+                            community before launch.
+                        </div>
+
+                    </div>
+
+
+                    <div style="
+                        padding:18px 0;
+                        border-bottom:1px solid rgba(100,160,190,.08);
+                    ">
+
+                        <div style="
+                            color:#43c6ff;
+                            font-size:8px;
+                            font-weight:900;
+                            letter-spacing:1.4px;
+                        ">
+                            02 / PLAYER IDENTITY
+                        </div>
+
+                        <div style="
+                            margin-top:7px;
+                            color:#647b8c;
+                            font-size:9px;
+                            line-height:1.6;
+                        ">
+                            Prepare your competitive identity
+                            for the platform.
+                        </div>
+
+                    </div>
+
+
+                    <div style="
+                        padding:18px 0;
+                    ">
+
+                        <div style="
+                            color:#43c6ff;
+                            font-size:8px;
+                            font-weight:900;
+                            letter-spacing:1.4px;
+                        ">
+                            03 / LAUNCH ACCESS
+                        </div>
+
+                        <div style="
+                            margin-top:7px;
+                            color:#647b8c;
+                            font-size:9px;
+                            line-height:1.6;
+                        ">
+                            Eligible early users may receive
+                            launch benefits under the published
+                            terms.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             STAFF APPLICATION
+        ================================================= -->
+
+        <div class="z-form-card z-staff-card">
+
+            <div class="z-form-number">
+                FORM / 02
+            </div>
+
+            <h3>
+                JOIN THE
+                <span>ZORVAN TEAM.</span>
+            </h3>
+
+            <p class="z-form-description">
+                Want to help build tournaments, community,
+                content or platform operations? Apply to
+                become part of the ZORVAN team.
+            </p>
+
+
+            <form
+                class="z-form"
+                onsubmit="return false;"
+            >
+
+
+                <div class="z-staff-fields">
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            placeholder="Your age"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="Phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            placeholder="Email address"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            City / State
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Example: Madhubani, Bihar"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Preferred Role
+                        </label>
+
+                        <select>
+
+                            <option value="">
+                                Select a role
+                            </option>
+
+                            <option>
+                                Tournament Moderator
+                            </option>
+
+                            <option>
+                                Tournament Manager
+                            </option>
+
+                            <option>
+                                Player Support
+                            </option>
+
+                            <option>
+                                Community Moderator
+                            </option>
+
+                            <option>
+                                Content / Social Media
+                            </option>
+
+                            <option>
+                                Graphic Designer
+                            </option>
+
+                            <option>
+                                Video Editor
+                            </option>
+
+                            <option>
+                                Technical / Web Support
+                            </option>
+
+                            <option>
+                                Operations
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Experience
+                        </label>
+
+                        <textarea
+                            placeholder="Tell us about your experience..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Why do you want to join ZORVAN?
+                        </label>
+
+                        <textarea
+                            placeholder="Tell us why you would be a good fit..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Availability
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            placeholder="Your age"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="Phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            placeholder="Email address"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            City / State
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Example: Bihar, India"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Preferred Role
+                        </label>
+
+                        <select>
+
+                            <option value="">
+                                Select a role
+                            </option>
+
+                            <option>
+                                Tournament Moderator
+                            </option>
+
+                            <option>
+                                Tournament Manager
+                            </option>
+
+                            <option>
+                                Player Support
+                            </option>
+
+                            <option>
+                                Community Moderator
+                            </option>
+
+                            <option>
+                                Content / Social Media
+                            </option>
+
+                            <option>
+                                Graphic Designer
+                            </option>
+
+                            <option>
+                                Video Editor
+                            </option>
+
+                            <option>
+                                Technical / Web Support
+                            </option>
+
+                            <option>
+                                Operations
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Experience
+                        </label>
+
+                        <textarea
+                            placeholder="Tell us about your experience..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Why do you want to join ZORVAN?
+                        </label>
+
+                        <textarea
+                            placeholder="Tell us why you would be a good fit..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Availability
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Example: 2–3 hours daily"
+                        >
+
+                    </div>
+
+
+                    <div class="z-input-group">
+
+                        <label>
+                            Portfolio / Work Link
+                            <span>(Optional)</span>
+                        </label>
+
+                        <input
+                            type="url"
+                            placeholder="https://..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <label class="z-check">
+
+                    <input
+                        type="checkbox"
+                    >
+
+                    <span>
+                        I understand that submitting this
+                        application does not guarantee selection,
+                        staff status or administrative access.
+                        Applications will be reviewed first.
+                    </span>
+
+                </label>
+
+
+                <button
+                    type="button"
+                    class="z-form-button"
+                >
+                    SUBMIT APPLICATION
+                </button>
+
+
+                <div class="z-form-note">
+                    Staff/admin permissions will only be
+                    granted after appropriate review and
+                    approval.
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PART 6 END
+===================================================== -->
+
+            <!-- =====================================================
+     ZORVAN — PART 7
+     FINAL CTA + FOOTER
+===================================================== -->
+
+<style>
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+
+.z-final-cta{
+    width:100%;
+    padding:20px 7% 105px;
+}
+
+.z-final-cta-inner{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+
+    position:relative;
+    overflow:hidden;
+
+    padding:
+        65px 45px;
+
+    text-align:center;
+
+    border:
+        1px solid rgba(67,198,255,.18);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,115,220,.13),
+            rgba(3,8,14,.82) 58%
+        );
+}
+
+.z-final-cta-inner::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:1px;
+
+    left:50%;
+    top:0;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #43c6ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 22px #008cff;
+}
+
+.z-final-cta-inner::after{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(67,198,255,.045);
+
+    box-shadow:
+        0 0 80px rgba(0,120,255,.05);
+
+    pointer-events:none;
+}
+
+
+/* CTA text */
+
+.z-final-label{
+    position:relative;
+    z-index:1;
+
+    color:#43c6ff;
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:2.5px;
+
+    margin-bottom:18px;
+}
+
+.z-final-title{
+    position:relative;
+    z-index:1;
+
+    font-size:
+        clamp(38px,7vw,76px);
+
+    line-height:.92;
+
+    font-weight:950;
+
+    letter-spacing:-3.5px;
+
+    text-transform:uppercase;
+}
+
+.z-final-title span{
+    color:#43c6ff;
+
+    text-shadow:
+        0 0 35px rgba(0,145,255,.22);
+}
+
+.z-final-description{
+    position:relative;
+    z-index:1;
+
+    max-width:560px;
+
+    margin:
+        22px auto 0;
+
+    color:#687f90;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+
+/* CTA button */
+
+.z-final-button{
+    position:relative;
+    z-index:2;
+
+    margin-top:30px;
+
+    min-width:190px;
+    min-height:48px;
+
+    padding:0 25px;
+
+    border:
+        1px solid rgba(67,198,255,.55);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,145,255,.17),
+            rgba(0,75,160,.08)
+        );
+
+    color:#e5f8ff;
+
+    font-family:inherit;
+
+    font-size:8px;
+    font-weight:950;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease,
+        background .18s ease;
+}
+
+.z-final-button:hover{
+    border-color:#43c6ff;
+
+    background:
+        rgba(0,140,255,.15);
+
+    box-shadow:
+        0 0 28px rgba(0,145,255,.18);
+}
+
+.z-final-button:active{
+    transform:scale(.96);
+
+    background:
+        rgba(0,150,255,.32);
+
+    box-shadow:
+        0 0 15px rgba(0,155,255,.55),
+        0 0 50px rgba(0,125,255,.20);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.z-footer{
+    width:100%;
+
+    border-top:
+        1px solid rgba(100,160,190,.08);
+
+    background:
+        rgba(1,5,9,.65);
+}
+
+.z-footer-inner{
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+        38px 7% 25px;
+}
+
+
+/* footer top */
+
+.z-footer-top{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-start;
+
+    gap:35px;
+}
+
+.z-footer-brand{
+    max-width:300px;
+}
+
+.z-footer-logo{
+    color:#f0f9ff;
+
+    font-size:21px;
+
+    font-weight:950;
+
+    letter-spacing:3px;
+}
+
+.z-footer-logo span{
+    color:#43c6ff;
+}
+
+.z-footer-brand p{
+    margin-top:11px;
+
+    color:#506777;
+
+    font-size:8px;
+
+    line-height:1.7;
+}
+
+
+/* footer links */
+
+.z-footer-links{
+    display:flex;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+.z-footer-links a{
+    color:#607687;
+
+    font-size:8px;
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-decoration:none;
+
+    transition:
+        color .2s ease;
+}
+
+.z-footer-links a:hover{
+    color:#43c6ff;
+}
+
+
+/* footer bottom */
+
+.z-footer-bottom{
+    margin-top:35px;
+
+    padding-top:17px;
+
+    border-top:
+        1px solid rgba(100,160,190,.07);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.z-footer-bottom span{
+    color:#354b5b;
+
+    font-size:7px;
+
+    letter-spacing:1.2px;
+}
+
+.z-footer-status{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#40596a;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+.z-footer-dot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#43c6ff;
+
+    box-shadow:
+        0 0 10px #008cff;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .z-final-cta{
+        padding:
+            10px 8% 75px;
+    }
+
+    .z-final-cta-inner{
+        padding:
+            50px 22px;
+    }
+
+    .z-final-title{
+        font-size:
+            clamp(37px,11vw,58px);
+
+        letter-spacing:-2.5px;
+    }
+
+    .z-final-description{
+        font-size:9px;
+    }
+
+    .z-footer-inner{
+        padding:
+            30px 8% 22px;
+    }
+
+    .z-footer-top{
+        flex-direction:column;
+    }
+
+    .z-footer-links{
+        gap:18px;
+    }
+
+    .z-footer-bottom{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="z-final-cta">
+
+    <div class="z-final-cta-inner">
+
+        <div class="z-final-label">
+            ZORVAN // THE NEXT MATCH STARTS HERE
+        </div>
+
+
+        <h2 class="z-final-title">
+
+            READY TO
+            <span>RISE?</span>
+
+        </h2>
+
+
+        <p class="z-final-description">
+
+            Join the early ZORVAN network and be part
+            of a competitive esports platform being built
+            for players.
+
+        </p>
+
+
+        <button
+            class="z-final-button"
+            type="button"
+            onclick="
+                document
+                .getElementById('register')
+                .scrollIntoView({
+                    behavior:'smooth'
+                });
+            "
+        >
+            GET EARLY ACCESS
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
      FOOTER
-================================ -->
+===================================================== -->
 
-<footer>
+<footer class="z-footer">
 
-  <div>
-    © 2026 <strong>ZORVAN Esports</strong>.
-    All rights reserved.
-  </div>
+    <div class="z-footer-inner">
 
-  <div>
-    Built for competitors.
-  </div>
+
+        <div class="z-footer-top">
+
+
+            <div class="z-footer-brand">
+
+                <div class="z-footer-logo">
+                    ZOR<span>VAN</span>
+                </div>
+
+                <p>
+                    A competitive esports platform
+                    built around players, competition
+                    and the journey beyond the match.
+                </p>
+
+            </div>
+
+
+            <div class="z-footer-links">
+
+                <a href="#home">
+                    HOME
+                </a>
+
+                <a href="#about">
+                    ABOUT
+                </a>
+
+                <a href="#features">
+                    FEATURES
+                </a>
+
+                <a href="#journey">
+                    HOW IT WORKS
+                </a>
+
+                <a href="#register">
+                    PRE-REGISTER
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="z-footer-bottom">
+
+            <span>
+                © 2026 ZORVAN ESPORTS. ALL RIGHTS RESERVED.
+            </span>
+
+
+            <div class="z-footer-status">
+
+                <div class="z-footer-dot"></div>
+
+                PLATFORM IN DEVELOPMENT
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </footer>
 
 
+<!-- =====================================================
+     PART 7 END
+===================================================== -->
+
+<!-- =====================================================
+     ZORVAN — PART 8
+     JAVASCRIPT / INTERACTIONS
+===================================================== -->
+
 <script>
 
-/* =================================
-   CLICK ENERGY BURST
-================================= */
+/* =====================================================
+   ZORVAN INTERACTION SYSTEM
+===================================================== */
 
-document.addEventListener("click",function(e){
+document.addEventListener("DOMContentLoaded", function(){
 
-  const target=e.target.closest(".btn,.nav-btn");
+    /* -------------------------------------------------
+       SMOOTH NAVIGATION
+    ------------------------------------------------- */
 
-  if(!target) return;
+    const navLinks =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
 
-  const burst=document.createElement("div");
+    navLinks.forEach(function(link){
 
-  burst.className="burst";
+        link.addEventListener(
+            "click",
+            function(event){
 
-  burst.style.left=(e.clientX-9)+"px";
-  burst.style.top=(e.clientY-9)+"px";
+                const targetId =
+                    this.getAttribute("href");
 
-  document.body.appendChild(burst);
+                const target =
+                    document.querySelector(targetId);
 
-  setTimeout(function(){
-    burst.remove();
-  },700);
+                if(target){
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* -------------------------------------------------
+       ELECTRIC BLUE CLICK EFFECT
+    ------------------------------------------------- */
+
+    const interactiveElements =
+        document.querySelectorAll(
+            "button, .z-feature-card, .z-about-card, .z-journey-node"
+        );
+
+    interactiveElements.forEach(function(element){
+
+        element.addEventListener(
+            "click",
+            function(){
+
+                this.classList.remove(
+                    "z-energy-click"
+                );
+
+                void this.offsetWidth;
+
+                this.classList.add(
+                    "z-energy-click"
+                );
+
+                setTimeout(function(){
+
+                    element.classList.remove(
+                        "z-energy-click"
+                    );
+
+                }, 550);
+
+            }
+        );
+
+    });
+
+
+    /* -------------------------------------------------
+       PRE-REGISTRATION FORM
+    ------------------------------------------------- */
+
+    const playerForm =
+        document.querySelector(
+            '#register .z-form'
+        );
+
+    if(playerForm){
+
+        const forms =
+            document.querySelectorAll(
+                '#register .z-form'
+            );
+
+        const playerButton =
+            forms[0]?.querySelector(
+                ".z-form-button"
+            );
+
+        if(playerButton){
+
+            playerButton.addEventListener(
+                "click",
+                function(){
+
+                    alert(
+                        "Pre-registration form is ready. Backend connection will be added next."
+                    );
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /* -------------------------------------------------
+       STAFF APPLICATION
+    ------------------------------------------------- */
+
+    const staffCard =
+        document.querySelector(
+            ".z-staff-card"
+        );
+
+    if(staffCard){
+
+        const staffButton =
+            staffCard.querySelector(
+                ".z-form-button"
+            );
+
+        if(staffButton){
+
+            staffButton.addEventListener(
+                "click",
+                function(){
+
+                    alert(
+                        "Staff application form is ready. Backend connection will be added next."
+                    );
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /* -------------------------------------------------
+       FINAL CTA BUTTON
+    ------------------------------------------------- */
+
+    const finalButton =
+        document.querySelector(
+            ".z-final-button"
+        );
+
+    if(finalButton){
+
+        finalButton.addEventListener(
+            "click",
+            function(){
+
+                const registerSection =
+                    document.getElementById(
+                        "register"
+                    );
+
+                if(registerSection){
+
+                    registerSection.scrollIntoView({
+                        behavior:"smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* -------------------------------------------------
+       BUTTON PRESS FEEDBACK
+    ------------------------------------------------- */
+
+    const buttons =
+        document.querySelectorAll(
+            "button"
+        );
+
+    buttons.forEach(function(button){
+
+        button.addEventListener(
+            "mousedown",
+            function(){
+
+                this.style.setProperty(
+                    "--press-glow",
+                    "1"
+                );
+
+            }
+        );
+
+        button.addEventListener(
+            "mouseup",
+            function(){
+
+                this.style.setProperty(
+                    "--press-glow",
+                    "0"
+                );
+
+            }
+        );
+
+        button.addEventListener(
+            "mouseleave",
+            function(){
+
+                this.style.setProperty(
+                    "--press-glow",
+                    "0"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* -------------------------------------------------
+       SIMPLE REVEAL EFFECT
+    ------------------------------------------------- */
+
+    const revealItems =
+        document.querySelectorAll(
+            ".z-about-card, .z-feature-card, .z-journey-step, .z-form-card"
+        );
+
+    const revealObserver =
+        new IntersectionObserver(
+            function(entries){
+
+                entries.forEach(function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "z-visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:0.12
+            }
+        );
+
+
+    revealItems.forEach(function(item){
+
+        item.classList.add(
+            "z-reveal"
+        );
+
+        revealObserver.observe(item);
+
+    });
+
 
 });
 
 
-/* =================================
-   DEMO TOURNAMENT
-================================= */
+/* =====================================================
+   FALLBACK SAFETY
+===================================================== */
 
-function demoTournament(){
-
-  alert(
-    "ZORVAN CLASH #01\n\n"+
-    "DEMO TOURNAMENT PREVIEW\n\n"+
-    "This is only a visual showcase.\n"+
-    "Registration is not live yet."
-  );
-
-}
-
-
-/* =================================
-   PLAYER FORM
-================================= */
-
-function submitPlayer(event){
-
-  event.preventDefault();
-
-  alert(
-    "Pre-registration form submitted!\n\n"+
-    "The secure backend connection will be added next."
-  );
-
-}
-
-
-/* =================================
-   STAFF FORM
-================================= */
-
-function submitStaff(event){
-
-  event.preventDefault();
-
-  alert(
-    "Staff application submitted!\n\n"+
-    "The application system will be connected to the backend later."
-  );
-
-}
-
-
-/* =================================
-   BUTTON MOUSE LIGHT
-================================= */
-
-document.querySelectorAll(".btn").forEach(function(button){
-
-  button.addEventListener("mousemove",function(e){
-
-    const rect=button.getBoundingClientRect();
-
-    const x=e.clientX-rect.left;
-    const y=e.clientY-rect.top;
-
-    button.style.backgroundImage=
-      "radial-gradient(circle at "+
-      x+"px "+y+"px,"+
-      "rgba(80,200,255,.28),"+
-      "transparent 55%)";
-
-  });
-
-  button.addEventListener("mouseleave",function(){
-
-    button.style.backgroundImage="";
-
-  });
-
-});
+window.addEventListener(
+    "error",
+    function(){
+        /* Keep page usable if a minor
+           interaction encounters an error. */
+    }
+);
 
 </script>
+
+
+<!-- =====================================================
+     PART 8 VISUAL EFFECTS
+===================================================== -->
+
+<style>
+
+/* =====================================================
+   ELECTRIC CLICK EFFECT
+===================================================== */
+
+.z-energy-click{
+    animation:
+        zEnergyFlash .55s ease-out;
+}
+
+@keyframes zEnergyFlash{
+
+    0%{
+        box-shadow:
+            0 0 0 rgba(0,150,255,0);
+    }
+
+    25%{
+        box-shadow:
+            0 0 18px rgba(0,155,255,.48),
+            0 0 45px rgba(0,115,255,.20);
+    }
+
+    100%{
+        box-shadow:
+            0 0 0 rgba(0,150,255,0);
+    }
+
+}
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+.z-reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(22px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.z-visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =====================================================
+   BUTTON PRESS LIGHT
+===================================================== */
+
+.z-form-button,
+.z-final-button,
+.z-nav-button,
+.z-hero-btn{
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.z-form-button::after,
+.z-final-button::after,
+.z-nav-button::after,
+.z-hero-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+    height:0;
+
+    left:50%;
+    top:50%;
+
+    border-radius:50%;
+
+    background:
+        rgba(67,198,255,.20);
+
+    transform:
+        translate(-50%,-50%);
+
+    transition:
+        width .35s ease,
+        height .35s ease;
+
+    pointer-events:none;
+}
+
+
+.z-form-button:active::after,
+.z-final-button:active::after,
+.z-nav-button:active::after,
+.z-hero-btn:active::after{
+
+    width:260px;
+    height:260px;
+
+}
+
+
+/* =====================================================
+   DISABLE REVEAL IF USER PREFERS REDUCED MOTION
+===================================================== */
+
+@media(
+    prefers-reduced-motion: reduce
+){
+
+    .z-reveal{
+
+        opacity:1;
+
+        transform:none;
+
+        transition:none;
+
+    }
+
+    .z-energy-click{
+
+        animation:none;
+
+    }
+
+}
+
+</style>
+
+
+<!-- =====================================================
+     ZORVAN PAGE END
+===================================================== -->
 
 </body>
 </html>
