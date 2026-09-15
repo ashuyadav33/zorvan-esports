@@ -5337,3 +5337,69 @@ iframe {
 
 }
 </style>
+
+<!-- ZORVAN — COMING SOON STATUS -->
+
+<style>
+.z-coming-soon {
+  position: fixed;
+  top: 82px;
+  right: 18px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 13px;
+  border: 1px solid rgba(40, 150, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(5, 10, 18, 0.82);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  box-shadow: 0 0 22px rgba(20, 130, 255, 0.12);
+}
+
+.z-coming-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #168cff;
+  box-shadow: 0 0 12px rgba(22, 140, 255, 0.9);
+  animation: zorvanComingPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes zorvanComingPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@media (max-width: 760px) {
+  .z-coming-soon {
+    top: 76px;
+    right: 12px;
+    padding: 7px 11px;
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .z-coming-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+</style>
+
+<div class="z-coming-soon">
+  <span class="z-coming-dot"></span>
+  COMING SOON
+</div>
+
+<!-- ZORVAN COMING SOON END -->
