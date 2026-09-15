@@ -5403,3 +5403,331 @@ iframe {
 </div>
 
 <!-- ZORVAN COMING SOON END -->
+
+<!-- ZORVAN — RESPONSIVE POLISH -->
+
+<style>
+
+/* ================================
+   ZORVAN RESPONSIVE SYSTEM
+================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden !important;
+}
+
+/* Prevent oversized content */
+img,
+video,
+iframe,
+canvas {
+  max-width: 100%;
+}
+
+/* ================================
+   LARGE DESKTOP
+================================ */
+
+@media (min-width: 1200px) {
+
+  .z-hero-inner,
+  .z-section-inner,
+  .z-features-inner,
+  .z-journey-inner,
+  .z-forms-inner,
+  .z-final-cta-inner {
+    width: min(1120px, calc(100% - 80px));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .z-hero-title {
+    font-size: clamp(64px, 7vw, 104px);
+    line-height: 0.92;
+  }
+
+  .z-section-title,
+  .z-features-heading,
+  .z-journey-heading {
+    font-size: clamp(44px, 5vw, 72px);
+  }
+
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+
+  .z-nav {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+
+  .z-nav-links {
+    gap: 18px !important;
+  }
+
+  .z-hero-inner,
+  .z-section-inner,
+  .z-features-inner,
+  .z-journey-inner,
+  .z-forms-inner,
+  .z-final-cta-inner {
+    width: calc(100% - 44px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .z-about-grid,
+  .z-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 760px) {
+
+  /* ---------- GLOBAL ---------- */
+
+  body {
+    font-size: 14px;
+  }
+
+  section {
+    overflow-x: hidden !important;
+  }
+
+  /* ---------- NAVBAR ---------- */
+
+  .z-nav {
+    padding: 14px 16px !important;
+  }
+
+  .z-logo {
+    font-size: 20px !important;
+  }
+
+  .z-nav-links {
+    display: none !important;
+  }
+
+  .z-nav-button {
+    padding: 9px 12px !important;
+    font-size: 9px !important;
+  }
+
+  /* ---------- COMMON WIDTH ---------- */
+
+  .z-hero-inner,
+  .z-section-inner,
+  .z-features-inner,
+  .z-journey-inner,
+  .z-forms-inner,
+  .z-final-cta-inner {
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .z-hero {
+    min-height: 100svh;
+    padding-top: 120px !important;
+    padding-bottom: 70px !important;
+  }
+
+  .z-hero-title {
+    font-size: clamp(43px, 13vw, 68px) !important;
+    line-height: 0.94 !important;
+    letter-spacing: -2px !important;
+    word-break: normal;
+  }
+
+  .z-hero-description {
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+
+  .z-hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
+    gap: 11px !important;
+  }
+
+  .z-hero-btn {
+    width: 100% !important;
+    min-height: 48px;
+  }
+
+  .z-tech-panel {
+    width: 100% !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .z-tech-item {
+    min-width: 0 !important;
+  }
+
+  /* ---------- SECTIONS ---------- */
+
+  .z-about,
+  .z-features,
+  .z-journey,
+  .z-forms,
+  .z-final-cta {
+    padding-top: 75px !important;
+    padding-bottom: 75px !important;
+  }
+
+  .z-section-title,
+  .z-features-heading,
+  .z-journey-heading {
+    font-size: clamp(34px, 10vw, 52px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -1px !important;
+  }
+
+  /* ---------- CARDS ---------- */
+
+  .z-about-grid,
+  .z-feature-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .z-about-card,
+  .z-system-card,
+  .z-feature-card,
+  .z-form-card {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* ---------- JOURNEY ---------- */
+
+  .z-journey-track {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .z-journey-step {
+    width: 100% !important;
+  }
+
+  /* ---------- FORMS ---------- */
+
+  .z-form-grid,
+  .z-input-row,
+  .z-staff-fields {
+    grid-template-columns: 1fr !important;
+  }
+
+  .z-input-group,
+  .z-form-card input,
+  .z-form-card select,
+  .z-form-card textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .z-form-button,
+  .z-final-button {
+    width: 100% !important;
+    min-height: 48px;
+  }
+
+  /* ---------- CTA ---------- */
+
+  .z-final-title {
+    font-size: clamp(42px, 12vw, 64px) !important;
+    line-height: 0.95 !important;
+  }
+
+  .z-final-description {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+
+}
+
+/* ================================
+   SMALL PHONES
+================================ */
+
+@media (max-width: 380px) {
+
+  .z-hero-inner,
+  .z-section-inner,
+  .z-features-inner,
+  .z-journey-inner,
+  .z-forms-inner,
+  .z-final-cta-inner {
+    width: calc(100% - 24px) !important;
+  }
+
+  .z-hero-title {
+    font-size: 40px !important;
+  }
+
+  .z-tech-panel {
+    gap: 8px !important;
+  }
+
+  .z-tech-item {
+    padding: 10px !important;
+  }
+
+}
+
+/* ================================
+   TOUCH DEVICES
+================================ */
+
+@media (hover: none) {
+
+  .z-hero-btn,
+  .z-form-button,
+  .z-final-button,
+  .z-nav-button {
+    min-height: 46px;
+  }
+
+}
+
+/* ================================
+   ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+</style>
+
+<!-- ZORVAN RESPONSIVE POLISH END -->
