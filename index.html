@@ -9315,3 +9315,4697 @@ iframe {
   }
 }
 </style>
+
+<!-- =========================================================
+     STEP 12 — ZORVAN ADMIN & STAFF SYSTEM
+========================================================= -->
+
+<section class="z-admin" id="admin-staff">
+
+  <div class="z-admin-inner">
+
+    <div class="z-admin-head">
+      <div class="z-admin-label">ZORVAN // OPERATIONS</div>
+
+      <h2 class="z-admin-title">
+        CONTROLLED BY DESIGN.<br>
+        BUILT FOR OPERATIONS.
+      </h2>
+
+      <p class="z-admin-sub">
+        A planned role-based system designed to manage tournaments,
+        players, matches, reports and platform operations with controlled access.
+      </p>
+    </div>
+
+
+    <div class="z-admin-grid">
+
+      <!-- ADMIN DASHBOARD PREVIEW -->
+      <div class="z-admin-preview">
+
+        <div class="z-admin-window">
+
+          <div class="z-admin-top">
+            <span class="z-admin-mini-logo">Z</span>
+
+            <div>
+              <span class="z-admin-system">ZORVAN ADMIN</span>
+              <span class="z-admin-preview-tag">PLANNED SYSTEM</span>
+            </div>
+
+            <span class="z-admin-status">ACCESS CONTROL</span>
+          </div>
+
+
+          <div class="z-admin-body">
+
+            <div class="z-admin-side">
+
+              <span class="active">OVERVIEW</span>
+              <span>PLAYERS</span>
+              <span>TEAMS</span>
+              <span>TOURNAMENTS</span>
+              <span>MATCHES</span>
+              <span>REPORTS</span>
+              <span>STAFF</span>
+
+            </div>
+
+
+            <div class="z-admin-main">
+
+              <div class="z-admin-main-title">
+                OPERATIONS CENTER
+              </div>
+
+              <div class="z-admin-metrics">
+
+                <div>
+                  <small>USERS</small>
+                  <strong>—</strong>
+                </div>
+
+                <div>
+                  <small>TOURNAMENTS</small>
+                  <strong>—</strong>
+                </div>
+
+                <div>
+                  <small>REPORTS</small>
+                  <strong>—</strong>
+                </div>
+
+                <div>
+                  <small>ACTIONS</small>
+                  <strong>—</strong>
+                </div>
+
+              </div>
+
+
+              <div class="z-admin-line">
+                <span>PLATFORM CONTROL</span>
+                <i></i>
+              </div>
+
+              <div class="z-admin-line">
+                <span>ROLE PERMISSIONS</span>
+                <i></i>
+              </div>
+
+              <div class="z-admin-line">
+                <span>AUDIT & SECURITY</span>
+                <i></i>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ROLES -->
+      <div class="z-admin-roles">
+
+        <div class="z-admin-role">
+          <span class="z-role-number">01</span>
+
+          <div>
+            <h3>STAFF</h3>
+            <p>
+              Limited operational access for assigned tournament
+              and match-management tasks.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-admin-role">
+          <span class="z-role-number">02</span>
+
+          <div>
+            <h3>MODERATOR</h3>
+            <p>
+              Community reports, player issues and moderation-related
+              responsibilities.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-admin-role">
+          <span class="z-role-number">03</span>
+
+          <div>
+            <h3>ADMIN</h3>
+            <p>
+              Wider platform-management permissions across tournaments,
+              players, results and operations.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-admin-role">
+          <span class="z-role-number">04</span>
+
+          <div>
+            <h3>SUPER ADMIN</h3>
+            <p>
+              Highest-level platform control with advanced permissions,
+              security oversight and sensitive action tracking.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-admin-footer">
+
+      <span>ROLE-BASED ACCESS</span>
+      <b>·</b>
+      <span>PERMISSION CONTROL</span>
+      <b>·</b>
+      <span>AUDIT LOGS</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN ADMIN & STAFF
+========================================================= */
+
+.z-admin {
+  position: relative;
+  width: 100%;
+  padding: 120px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.z-admin-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.z-admin-head {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.z-admin-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.z-admin-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.8px;
+  font-weight: 900;
+}
+
+.z-admin-sub {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: rgba(255,255,255,0.58);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* MAIN GRID */
+
+.z-admin-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 26px;
+  align-items: stretch;
+}
+
+
+/* DASHBOARD PREVIEW */
+
+.z-admin-preview {
+  padding: 1px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(22,140,255,0.55),
+    rgba(255,255,255,0.06),
+    rgba(22,140,255,0.18)
+  );
+}
+
+.z-admin-window {
+  min-height: 430px;
+  border-radius: 21px;
+  overflow: hidden;
+  background: rgba(7,11,18,0.96);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+}
+
+.z-admin-top {
+  min-height: 68px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.z-admin-mini-logo {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(22,140,255,0.55);
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 900;
+  background: rgba(22,140,255,0.08);
+}
+
+.z-admin-system {
+  display: block;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.z-admin-preview-tag {
+  display: block;
+  margin-top: 3px;
+  color: rgba(255,255,255,0.35);
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+
+.z-admin-status {
+  margin-left: auto;
+  color: rgba(22,140,255,0.85);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+
+/* DASHBOARD BODY */
+
+.z-admin-body {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  min-height: 360px;
+}
+
+.z-admin-side {
+  padding: 24px 14px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.z-admin-side span {
+  display: block;
+  padding: 10px 9px;
+  margin-bottom: 5px;
+  border-radius: 7px;
+  color: rgba(255,255,255,0.32);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.z-admin-side span.active {
+  color: #ffffff;
+  background: rgba(22,140,255,0.12);
+  border: 1px solid rgba(22,140,255,0.18);
+}
+
+.z-admin-main {
+  padding: 28px 25px;
+}
+
+.z-admin-main-title {
+  color: rgba(255,255,255,0.72);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  margin-bottom: 22px;
+}
+
+.z-admin-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.z-admin-metrics div {
+  min-height: 76px;
+  padding: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.025);
+}
+
+.z-admin-metrics small {
+  display: block;
+  color: rgba(255,255,255,0.32);
+  font-size: 7px;
+  letter-spacing: 1.2px;
+}
+
+.z-admin-metrics strong {
+  display: block;
+  margin-top: 9px;
+  color: rgba(255,255,255,0.55);
+  font-size: 19px;
+}
+
+.z-admin-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.42);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.z-admin-line i {
+  width: 5px;
+  height: 5px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #168cff;
+  box-shadow: 0 0 9px rgba(22,140,255,0.7);
+}
+
+
+/* ROLES */
+
+.z-admin-roles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.z-admin-role {
+  display: flex;
+  gap: 18px;
+  padding: 23px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.025);
+  transition: 0.25s ease;
+}
+
+.z-admin-role:hover {
+  border-color: rgba(22,140,255,0.32);
+  background: rgba(22,140,255,0.035);
+  transform: translateY(-2px);
+}
+
+.z-role-number {
+  flex: 0 0 auto;
+  color: rgba(22,140,255,0.7);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.z-admin-role h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 1.3px;
+}
+
+.z-admin-role p {
+  margin: 0;
+  color: rgba(255,255,255,0.48);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+
+/* FOOTER */
+
+.z-admin-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 45px;
+  color: rgba(255,255,255,0.35);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.z-admin-footer b {
+  color: #168cff;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .z-admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .z-admin {
+    padding: 85px 15px;
+  }
+
+  .z-admin-title {
+    font-size: 35px;
+  }
+
+  .z-admin-sub {
+    font-size: 13px;
+  }
+
+  .z-admin-window {
+    min-height: 390px;
+  }
+
+  .z-admin-body {
+    grid-template-columns: 92px 1fr;
+  }
+
+  .z-admin-side span {
+    font-size: 7px;
+    padding: 9px 5px;
+  }
+
+  .z-admin-main {
+    padding: 22px 14px;
+  }
+
+  .z-admin-metrics {
+    gap: 7px;
+  }
+
+  .z-admin-metrics div {
+    padding: 11px;
+  }
+
+  .z-admin-role {
+    padding: 19px;
+  }
+
+  .z-admin-footer {
+    font-size: 7px;
+    letter-spacing: 1.1px;
+  }
+
+}
+
+  </style>
+
+<!-- =========================================================
+     STEP 13 — ZORVAN AUDIT & SECURITY
+========================================================= -->
+
+<section class="z-audit" id="security">
+
+  <div class="z-audit-inner">
+
+    <div class="z-audit-head">
+      <div class="z-audit-label">ZORVAN // SECURITY</div>
+
+      <h2 class="z-audit-title">
+        EVERY ACTION.<br>
+        ACCOUNTABLE BY DESIGN.
+      </h2>
+
+      <p class="z-audit-sub">
+        A planned security and audit layer designed to keep sensitive
+        platform actions controlled, traceable and reviewable.
+      </p>
+    </div>
+
+
+    <div class="z-audit-grid">
+
+      <!-- AUDIT FLOW -->
+
+      <div class="z-audit-panel">
+
+        <div class="z-audit-panel-top">
+          <span>AUDIT SYSTEM</span>
+          <b>PLANNED</b>
+        </div>
+
+
+        <div class="z-audit-flow">
+
+          <div class="z-audit-item">
+            <span class="z-audit-num">01</span>
+
+            <div>
+              <strong>ACTION</strong>
+              <p>
+                Important admin and staff actions are designed
+                to be recorded.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="z-audit-connector"></div>
+
+
+          <div class="z-audit-item">
+            <span class="z-audit-num">02</span>
+
+            <div>
+              <strong>RECORD</strong>
+              <p>
+                Relevant details such as action type, time and
+                responsible role can be tracked.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="z-audit-connector"></div>
+
+
+          <div class="z-audit-item">
+            <span class="z-audit-num">03</span>
+
+            <div>
+              <strong>REVIEW</strong>
+              <p>
+                Sensitive changes can be reviewed when required
+                by authorized platform operators.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SECURITY FEATURES -->
+
+      <div class="z-audit-features">
+
+        <div class="z-audit-card">
+          <span>01</span>
+          <h3>ROLE CONTROL</h3>
+          <p>
+            Permissions are planned around specific roles and
+            responsibilities.
+          </p>
+        </div>
+
+
+        <div class="z-audit-card">
+          <span>02</span>
+          <h3>CHANGE HISTORY</h3>
+          <p>
+            Important changes can maintain a traceable record
+            of what was changed.
+          </p>
+        </div>
+
+
+        <div class="z-audit-card">
+          <span>03</span>
+          <h3>SENSITIVE ACTIONS</h3>
+          <p>
+            Wallet, results, badges and moderation actions can
+            receive additional tracking.
+          </p>
+        </div>
+
+
+        <div class="z-audit-card">
+          <span>04</span>
+          <h3>SECURITY OVERSIGHT</h3>
+          <p>
+            Higher-level platform controls are planned with
+            additional visibility and review.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-audit-bottom">
+
+      <span>SECURITY</span>
+      <b>→</b>
+      <span>TRACEABILITY</span>
+      <b>→</b>
+      <span>ACCOUNTABILITY</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN AUDIT & SECURITY
+========================================================= */
+
+.z-audit {
+  position: relative;
+  width: 100%;
+  padding: 120px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.z-audit-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+
+/* HEADER */
+
+.z-audit-head {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.z-audit-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.z-audit-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.8px;
+  font-weight: 900;
+}
+
+.z-audit-sub {
+  max-width: 690px;
+  margin: 22px 0 0;
+  color: rgba(255,255,255,0.56);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* MAIN GRID */
+
+.z-audit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+
+/* AUDIT PANEL */
+
+.z-audit-panel {
+  padding: 25px;
+  border: 1px solid rgba(22,140,255,0.18);
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22,140,255,0.055),
+      rgba(255,255,255,0.018)
+    );
+  box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+}
+
+.z-audit-panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.z-audit-panel-top span {
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.z-audit-panel-top b {
+  color: #168cff;
+  font-size: 8px;
+  letter-spacing: 1.4px;
+}
+
+
+/* FLOW */
+
+.z-audit-flow {
+  padding-top: 25px;
+}
+
+.z-audit-item {
+  display: flex;
+  gap: 17px;
+  align-items: flex-start;
+}
+
+.z-audit-num {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(22,140,255,0.3);
+  border-radius: 9px;
+  color: #168cff;
+  font-size: 9px;
+  font-weight: 900;
+  background: rgba(22,140,255,0.06);
+}
+
+.z-audit-item strong {
+  display: block;
+  margin-top: 2px;
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+}
+
+.z-audit-item p {
+  margin: 8px 0 0;
+  color: rgba(255,255,255,0.44);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.z-audit-connector {
+  width: 1px;
+  height: 27px;
+  margin: 6px 0 6px 16px;
+  background: linear-gradient(
+    to bottom,
+    rgba(22,140,255,0.45),
+    rgba(255,255,255,0.05)
+  );
+}
+
+
+/* SECURITY CARDS */
+
+.z-audit-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.z-audit-card {
+  position: relative;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.022);
+  transition: 0.25s ease;
+}
+
+.z-audit-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(22,140,255,0.3);
+  background: rgba(22,140,255,0.035);
+}
+
+.z-audit-card > span {
+  display: block;
+  margin-bottom: 19px;
+  color: rgba(22,140,255,0.72);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.z-audit-card h3 {
+  margin: 0 0 9px;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1.3px;
+}
+
+.z-audit-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.44);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+
+/* BOTTOM */
+
+.z-audit-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 48px;
+  color: rgba(255,255,255,0.34);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.z-audit-bottom b {
+  color: #168cff;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .z-audit-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .z-audit {
+    padding: 85px 15px;
+  }
+
+  .z-audit-title {
+    font-size: 35px;
+  }
+
+  .z-audit-sub {
+    font-size: 13px;
+  }
+
+  .z-audit-panel {
+    padding: 20px;
+  }
+
+  .z-audit-features {
+    grid-template-columns: 1fr;
+  }
+
+  .z-audit-card {
+    padding: 19px;
+  }
+
+  .z-audit-bottom {
+    font-size: 7px;
+    letter-spacing: 1.2px;
+  }
+
+}
+
+</style>
+
+<!-- =========================================================
+     STEP 14 — ZORVAN WALLET & REWARDS
+========================================================= -->
+
+<section class="z-wallet" id="wallet">
+
+  <div class="z-wallet-inner">
+
+    <div class="z-wallet-head">
+      <div class="z-wallet-label">ZORVAN // REWARDS</div>
+
+      <h2 class="z-wallet-title">
+        COMPETE.<br>
+        EARN. REPEAT.
+      </h2>
+
+      <p class="z-wallet-sub">
+        A planned wallet and rewards system designed to keep
+        tournament earnings, transactions and rewards organized.
+      </p>
+    </div>
+
+
+    <div class="z-wallet-grid">
+
+      <!-- WALLET PREVIEW -->
+
+      <div class="z-wallet-preview">
+
+        <div class="z-wallet-card">
+
+          <div class="z-wallet-top">
+            <span>ZORVAN WALLET</span>
+            <b>PLANNED</b>
+          </div>
+
+          <div class="z-wallet-balance">
+            <small>AVAILABLE BALANCE</small>
+
+            <strong>
+              ⟐ <span>—</span>
+            </strong>
+
+            <em>ZORVAN COINS</em>
+          </div>
+
+          <div class="z-wallet-actions">
+            <div>
+              <span>+</span>
+              ADD MONEY
+            </div>
+
+            <div>
+              <span>↗</span>
+              WITHDRAW
+            </div>
+          </div>
+
+          <div class="z-wallet-line">
+            <span>TRANSACTION HISTORY</span>
+            <b>VIEW</b>
+          </div>
+
+          <div class="z-wallet-line">
+            <span>TOURNAMENT REWARDS</span>
+            <b>—</b>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- WALLET FEATURES -->
+
+      <div class="z-wallet-features">
+
+        <div class="z-wallet-feature">
+          <span>01</span>
+
+          <div>
+            <h3>ADD MONEY</h3>
+            <p>
+              Planned support for adding funds through supported
+              payment methods.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-wallet-feature">
+          <span>02</span>
+
+          <div>
+            <h3>TOURNAMENT EARNINGS</h3>
+            <p>
+              Eligible rewards and tournament earnings can be
+              reflected in the wallet.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-wallet-feature">
+          <span>03</span>
+
+          <div>
+            <h3>WITHDRAWALS</h3>
+            <p>
+              A planned withdrawal flow with review and transaction
+              status tracking.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-wallet-feature">
+          <span>04</span>
+
+          <div>
+            <h3>TRANSACTION HISTORY</h3>
+            <p>
+              Users can be able to review wallet activity and
+              relevant transaction records.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-wallet-note">
+
+      <span>REWARDS</span>
+      <b>·</b>
+      <span>TRANSPARENCY</span>
+      <b>·</b>
+      <span>TRACKING</span>
+      <b>·</b>
+      <span>CONTROL</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN WALLET & REWARDS
+========================================================= */
+
+.z-wallet {
+  position: relative;
+  width: 100%;
+  padding: 120px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.z-wallet-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+
+/* HEADER */
+
+.z-wallet-head {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.z-wallet-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.z-wallet-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.8px;
+  font-weight: 900;
+}
+
+.z-wallet-sub {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: rgba(255,255,255,0.56);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* GRID */
+
+.z-wallet-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+
+/* WALLET CARD */
+
+.z-wallet-preview {
+  padding: 1px;
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(22,140,255,0.55),
+    rgba(255,255,255,0.05),
+    rgba(22,140,255,0.16)
+  );
+}
+
+.z-wallet-card {
+  min-height: 420px;
+  padding: 27px;
+  box-sizing: border-box;
+  border-radius: 21px;
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(22,140,255,0.15),
+      transparent 35%
+    ),
+    rgba(7,11,18,0.96);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+}
+
+.z-wallet-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.z-wallet-top span {
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.z-wallet-top b {
+  color: #168cff;
+  font-size: 8px;
+  letter-spacing: 1.3px;
+}
+
+
+/* BALANCE */
+
+.z-wallet-balance {
+  margin-top: 65px;
+}
+
+.z-wallet-balance small {
+  display: block;
+  color: rgba(255,255,255,0.34);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.z-wallet-balance strong {
+  display: block;
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.z-wallet-balance strong:first-letter {
+  color: #168cff;
+}
+
+.z-wallet-balance em {
+  display: block;
+  margin-top: 4px;
+  color: rgba(22,140,255,0.75);
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+
+/* ACTIONS */
+
+.z-wallet-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 45px;
+}
+
+.z-wallet-actions div {
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 9px;
+  color: rgba(255,255,255,0.5);
+  font-size: 8px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.z-wallet-actions span {
+  margin-right: 5px;
+  color: #168cff;
+  font-size: 12px;
+}
+
+
+/* LINES */
+
+.z-wallet-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  margin-top: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.38);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.z-wallet-line b {
+  color: rgba(22,140,255,0.75);
+}
+
+
+/* FEATURES */
+
+.z-wallet-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.z-wallet-feature {
+  display: flex;
+  gap: 16px;
+  padding: 23px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.022);
+  transition: 0.25s ease;
+}
+
+.z-wallet-feature:hover {
+  transform: translateY(-3px);
+  border-color: rgba(22,140,255,0.3);
+  background: rgba(22,140,255,0.035);
+}
+
+.z-wallet-feature > span {
+  flex: 0 0 auto;
+  color: rgba(22,140,255,0.72);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.z-wallet-feature h3 {
+  margin: 0 0 9px;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.z-wallet-feature p {
+  margin: 0;
+  color: rgba(255,255,255,0.43);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+
+/* BOTTOM */
+
+.z-wallet-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 45px;
+  color: rgba(255,255,255,0.32);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.z-wallet-note b {
+  color: #168cff;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .z-wallet-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .z-wallet {
+    padding: 85px 15px;
+  }
+
+  .z-wallet-title {
+    font-size: 35px;
+  }
+
+  .z-wallet-sub {
+    font-size: 13px;
+  }
+
+  .z-wallet-card {
+    min-height: 400px;
+    padding: 21px;
+  }
+
+  .z-wallet-balance {
+    margin-top: 52px;
+  }
+
+  .z-wallet-balance strong {
+    font-size: 36px;
+  }
+
+  .z-wallet-features {
+    grid-template-columns: 1fr;
+  }
+
+  .z-wallet-feature {
+    padding: 19px;
+  }
+
+  .z-wallet-note {
+    font-size: 7px;
+    letter-spacing: 1.1px;
+  }
+
+}
+
+    </style>
+
+
+<!-- =========================================================
+     STEP 15 — ZORVAN MATCHES, RESULTS & PERFORMANCE
+========================================================= -->
+
+<section class="z-matches" id="matches">
+
+  <div class="z-matches-inner">
+
+    <div class="z-matches-head">
+      <div class="z-matches-label">ZORVAN // COMPETITION</div>
+
+      <h2 class="z-matches-title">
+        EVERY MATCH.<br>
+        EVERY PERFORMANCE.
+      </h2>
+
+      <p class="z-matches-sub">
+        A planned match system where players can follow upcoming,
+        live and completed matches while building a trackable performance history.
+      </p>
+    </div>
+
+
+    <div class="z-matches-grid">
+
+      <!-- MATCH PREVIEW -->
+
+      <div class="z-match-preview">
+
+        <div class="z-match-window">
+
+          <div class="z-match-top">
+            <span>MATCH CENTER</span>
+            <b>PLANNED</b>
+          </div>
+
+
+          <div class="z-match-status">
+            <span>UPCOMING MATCH</span>
+            <i></i>
+          </div>
+
+
+          <div class="z-match-versus">
+
+            <div class="z-match-team">
+              <div class="z-team-symbol">A</div>
+              <strong>TEAM A</strong>
+              <small>—</small>
+            </div>
+
+
+            <div class="z-vs">
+              VS
+            </div>
+
+
+            <div class="z-match-team">
+              <div class="z-team-symbol">B</div>
+              <strong>TEAM B</strong>
+              <small>—</small>
+            </div>
+
+          </div>
+
+
+          <div class="z-match-info">
+
+            <div>
+              <small>STATUS</small>
+              <span>UPCOMING</span>
+            </div>
+
+            <div>
+              <small>RESULT</small>
+              <span>—</span>
+            </div>
+
+            <div>
+              <small>PERFORMANCE</small>
+              <span>—</span>
+            </div>
+
+          </div>
+
+
+          <div class="z-match-note">
+            MATCH DATA WILL APPEAR HERE
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PERFORMANCE FEATURES -->
+
+      <div class="z-performance">
+
+        <div class="z-performance-card">
+          <span>01</span>
+
+          <div>
+            <h3>MATCH DETAILS</h3>
+            <p>
+              Tournament, match format, schedule, lobby information
+              and relevant match details.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-performance-card">
+          <span>02</span>
+
+          <div>
+            <h3>RESULTS</h3>
+            <p>
+              Completed match results with standings and
+              result-verification support.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-performance-card">
+          <span>03</span>
+
+          <div>
+            <h3>PLAYER PERFORMANCE</h3>
+            <p>
+              Track relevant performance data such as kills,
+              points, position and match history.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-performance-card">
+          <span>04</span>
+
+          <div>
+            <h3>PROOF & VERIFICATION</h3>
+            <p>
+              Planned proof submission and verification workflows
+              for competitive results.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-performance-flow">
+
+      <span>MATCH</span>
+      <b>→</b>
+      <span>RESULT</span>
+      <b>→</b>
+      <span>VERIFICATION</span>
+      <b>→</b>
+      <span>PERFORMANCE</span>
+      <b>→</b>
+      <span>RANKING</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN MATCHES & PERFORMANCE
+========================================================= */
+
+.z-matches {
+  position: relative;
+  width: 100%;
+  padding: 120px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.z-matches-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+
+/* HEADER */
+
+.z-matches-head {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.z-matches-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.z-matches-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.8px;
+  font-weight: 900;
+}
+
+.z-matches-sub {
+  max-width: 690px;
+  margin: 22px 0 0;
+  color: rgba(255,255,255,0.56);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* GRID */
+
+.z-matches-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+
+/* MATCH WINDOW */
+
+.z-match-preview {
+  padding: 1px;
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(22,140,255,0.55),
+    rgba(255,255,255,0.05),
+    rgba(22,140,255,0.15)
+  );
+}
+
+.z-match-window {
+  min-height: 430px;
+  padding: 26px;
+  box-sizing: border-box;
+  border-radius: 21px;
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(22,140,255,0.13),
+      transparent 35%
+    ),
+    rgba(7,11,18,0.96);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+}
+
+.z-match-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.z-match-top span {
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.z-match-top b {
+  color: #168cff;
+  font-size: 8px;
+  letter-spacing: 1.3px;
+}
+
+
+/* STATUS */
+
+.z-match-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 27px;
+  color: rgba(255,255,255,0.4);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.z-match-status i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #168cff;
+  box-shadow: 0 0 9px rgba(22,140,255,0.8);
+}
+
+
+/* VERSUS */
+
+.z-match-versus {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.z-match-team {
+  text-align: center;
+}
+
+.z-team-symbol {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.025);
+  color: rgba(255,255,255,0.65);
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.z-match-team strong {
+  display: block;
+  color: #ffffff;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+
+.z-match-team small {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255,255,255,0.3);
+  font-size: 9px;
+}
+
+.z-vs {
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+
+/* INFO */
+
+.z-match-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin-top: 42px;
+}
+
+.z-match-info div {
+  padding: 12px 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 9px;
+  background: rgba(255,255,255,0.02);
+  text-align: center;
+}
+
+.z-match-info small {
+  display: block;
+  color: rgba(255,255,255,0.3);
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.z-match-info span {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255,255,255,0.56);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.z-match-note {
+  margin-top: 25px;
+  color: rgba(22,140,255,0.5);
+  font-size: 7px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1.4px;
+}
+
+
+/* PERFORMANCE CARDS */
+
+.z-performance {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.z-performance-card {
+  display: flex;
+  gap: 16px;
+  padding: 23px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.022);
+  transition: 0.25s ease;
+}
+
+.z-performance-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(22,140,255,0.3);
+  background: rgba(22,140,255,0.035);
+}
+
+.z-performance-card > span {
+  flex: 0 0 auto;
+  color: rgba(22,140,255,0.72);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.z-performance-card h3 {
+  margin: 0 0 9px;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.z-performance-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.43);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+
+/* FLOW */
+
+.z-performance-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 48px;
+  color: rgba(255,255,255,0.33);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.z-performance-flow b {
+  color: #168cff;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .z-matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .z-matches {
+    padding: 85px 15px;
+  }
+
+  .z-matches-title {
+    font-size: 35px;
+  }
+
+  .z-matches-sub {
+    font-size: 13px;
+  }
+
+  .z-match-window {
+    min-height: 410px;
+    padding: 21px;
+  }
+
+  .z-performance {
+    grid-template-columns: 1fr;
+  }
+
+  .z-performance-card {
+    padding: 19px;
+  }
+
+  .z-performance-flow {
+    font-size: 7px;
+    letter-spacing: 1.1px;
+  }
+
+}
+
+</style>
+
+<!-- =========================================================
+     STEP 16 — ZORVAN TEAM SYSTEM
+========================================================= -->
+
+<section class="z-teams" id="teams">
+
+  <div class="z-teams-inner">
+
+    <div class="z-teams-head">
+      <div class="z-teams-label">ZORVAN // TEAM SYSTEM</div>
+
+      <h2 class="z-teams-title">
+        BUILD YOUR TEAM.<br>
+        PLAY AS ONE.
+      </h2>
+
+      <p class="z-teams-sub">
+        A planned team ecosystem where players can create,
+        manage and grow competitive teams together.
+      </p>
+    </div>
+
+
+    <div class="z-teams-grid">
+
+      <!-- TEAM PROFILE PREVIEW -->
+
+      <div class="z-team-preview">
+
+        <div class="z-team-window">
+
+          <div class="z-team-top">
+            <span>TEAM PROFILE</span>
+            <b>PLANNED</b>
+          </div>
+
+
+          <div class="z-team-identity">
+
+            <div class="z-team-logo">
+              Z
+            </div>
+
+            <div>
+              <strong>TEAM Z</strong>
+              <small>COMPETITIVE SQUAD</small>
+            </div>
+
+          </div>
+
+
+          <div class="z-team-stats">
+
+            <div>
+              <small>MEMBERS</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>TOURNAMENTS</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>RANKING</small>
+              <strong>—</strong>
+            </div>
+
+          </div>
+
+
+          <div class="z-team-members">
+
+            <div>
+              <span>CAPTAIN</span>
+              <b>PLAYER —</b>
+            </div>
+
+            <div>
+              <span>MEMBERS</span>
+              <b>ROSTER —</b>
+            </div>
+
+          </div>
+
+
+          <div class="z-team-footer">
+            TEAM DATA WILL APPEAR HERE
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEAM FEATURES -->
+
+      <div class="z-team-features">
+
+        <div class="z-team-card">
+          <span>01</span>
+
+          <div>
+            <h3>CREATE TEAM</h3>
+            <p>
+              Create a team with its own name, identity, logo
+              and competitive profile.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-team-card">
+          <span>02</span>
+
+          <div>
+            <h3>MANAGE ROSTER</h3>
+            <p>
+              Invite players, manage members, handle team roles
+              and maintain the active roster.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-team-card">
+          <span>03</span>
+
+          <div>
+            <h3>TEAM HISTORY</h3>
+            <p>
+              Track tournament participation, match history,
+              achievements and team progress.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-team-card">
+          <span>04</span>
+
+          <div>
+            <h3>TEAM RANKINGS</h3>
+            <p>
+              Team performance can contribute to rankings,
+              statistics and competitive progression.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-team-flow">
+
+      <span>CREATE</span>
+      <b>→</b>
+      <span>BUILD</span>
+      <b>→</b>
+      <span>COMPETE</span>
+      <b>→</b>
+      <span>PERFORM</span>
+      <b>→</b>
+      <span>RISE TOGETHER</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN TEAM SYSTEM
+========================================================= */
+
+.z-teams {
+  position: relative;
+  width: 100%;
+  padding: 120px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.z-teams-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+
+/* HEADER */
+
+.z-teams-head {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.z-teams-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.z-teams-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.8px;
+  font-weight: 900;
+}
+
+.z-teams-sub {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: rgba(255,255,255,0.56);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* GRID */
+
+.z-teams-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+
+/* TEAM PREVIEW */
+
+.z-team-preview {
+  padding: 1px;
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(22,140,255,0.55),
+    rgba(255,255,255,0.05),
+    rgba(22,140,255,0.15)
+  );
+}
+
+.z-team-window {
+  min-height: 425px;
+  padding: 27px;
+  box-sizing: border-box;
+  border-radius: 21px;
+  background:
+    radial-gradient(
+      circle at 80% 12%,
+      rgba(22,140,255,0.14),
+      transparent 34%
+    ),
+    rgba(7,11,18,0.96);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+}
+
+.z-team-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.z-team-top span {
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.z-team-top b {
+  color: #168cff;
+  font-size: 8px;
+  letter-spacing: 1.3px;
+}
+
+
+/* TEAM IDENTITY */
+
+.z-team-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.z-team-logo {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(22,140,255,0.32);
+  border-radius: 16px;
+  background: rgba(22,140,255,0.06);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: inset 0 0 25px rgba(22,140,255,0.05);
+}
+
+.z-team-identity strong {
+  display: block;
+  color: #ffffff;
+  font-size: 17px;
+  letter-spacing: 1.4px;
+}
+
+.z-team-identity small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.34);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+
+/* STATS */
+
+.z-team-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.z-team-stats div {
+  padding: 13px 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 9px;
+  background: rgba(255,255,255,0.02);
+  text-align: center;
+}
+
+.z-team-stats small {
+  display: block;
+  color: rgba(255,255,255,0.3);
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.z-team-stats strong {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255,255,255,0.58);
+  font-size: 15px;
+}
+
+
+/* MEMBERS */
+
+.z-team-members {
+  margin-top: 24px;
+}
+
+.z-team-members div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.z-team-members span {
+  color: rgba(255,255,255,0.3);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.z-team-members b {
+  color: rgba(255,255,255,0.52);
+  font-size: 8px;
+  letter-spacing: 0.7px;
+}
+
+
+/* FOOTER */
+
+.z-team-footer {
+  margin-top: 22px;
+  color: rgba(22,140,255,0.48);
+  font-size: 7px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1.4px;
+}
+
+
+/* FEATURE CARDS */
+
+.z-team-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.z-team-card {
+  display: flex;
+  gap: 16px;
+  padding: 23px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.022);
+  transition: 0.25s ease;
+}
+
+.z-team-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(22,140,255,0.3);
+  background: rgba(22,140,255,0.035);
+}
+
+.z-team-card > span {
+  flex: 0 0 auto;
+  color: rgba(22,140,255,0.72);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.z-team-card h3 {
+  margin: 0 0 9px;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.z-team-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.43);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+
+/* FLOW */
+
+.z-team-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 48px;
+  color: rgba(255,255,255,0.33);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.z-team-flow b {
+  color: #168cff;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .z-teams-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .z-teams {
+    padding: 85px 15px;
+  }
+
+  .z-teams-title {
+    font-size: 35px;
+  }
+
+  .z-teams-sub {
+    font-size: 13px;
+  }
+
+  .z-team-window {
+    min-height: 410px;
+    padding: 21px;
+  }
+
+  .z-team-features {
+    grid-template-columns: 1fr;
+  }
+
+  .z-team-card {
+    padding: 19px;
+  }
+
+  .z-team-flow {
+    font-size: 7px;
+    letter-spacing: 1.1px;
+  }
+
+}
+
+</style>
+
+<!-- =========================================================
+     STEP 17 — ZORVAN COMMUNITY & CHAT
+========================================================= -->
+
+<section class="z-community" id="community">
+
+  <div class="z-community-inner">
+
+    <div class="z-community-head">
+      <div class="z-community-label">ZORVAN // COMMUNITY</div>
+
+      <h2 class="z-community-title">
+        CONNECT.<br>
+        COMPETE. BELONG.
+      </h2>
+
+      <p class="z-community-sub">
+        A planned community layer where players can communicate,
+        follow updates and build connections around competition.
+      </p>
+    </div>
+
+
+    <div class="z-community-grid">
+
+      <!-- CHAT PREVIEW -->
+
+      <div class="z-chat-preview">
+
+        <div class="z-chat-window">
+
+          <div class="z-chat-top">
+
+            <div class="z-chat-brand">
+              <span class="z-chat-icon">Z</span>
+
+              <div>
+                <strong>WORLD CHAT</strong>
+                <small>COMMUNITY SPACE</small>
+              </div>
+            </div>
+
+            <b>PLANNED</b>
+
+          </div>
+
+
+          <div class="z-chat-messages">
+
+            <div class="z-message">
+              <span class="z-message-avatar">A</span>
+
+              <div>
+                <strong>PLAYER —</strong>
+                <p>Looking for a competitive squad.</p>
+              </div>
+            </div>
+
+
+            <div class="z-message">
+              <span class="z-message-avatar">Z</span>
+
+              <div>
+                <strong>ZORVAN</strong>
+                <p>Community updates will appear here.</p>
+              </div>
+            </div>
+
+
+            <div class="z-message">
+              <span class="z-message-avatar">P</span>
+
+              <div>
+                <strong>PLAYER —</strong>
+                <p>Ready for the next tournament.</p>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="z-chat-input">
+            <span>MESSAGE COMMUNITY...</span>
+            <b>→</b>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- COMMUNITY FEATURES -->
+
+      <div class="z-community-features">
+
+        <div class="z-community-card">
+          <span>01</span>
+
+          <div>
+            <h3>WORLD CHAT</h3>
+            <p>
+              A shared community space for player conversations,
+              updates and competitive discussion.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-community-card">
+          <span>02</span>
+
+          <div>
+            <h3>PLAYER MESSAGING</h3>
+            <p>
+              Planned direct messaging between players with
+              controls for communication.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-community-card">
+          <span>03</span>
+
+          <div>
+            <h3>ANNOUNCEMENTS</h3>
+            <p>
+              Important platform, tournament and maintenance
+              updates can reach the community.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="z-community-card">
+          <span>04</span>
+
+          <div>
+            <h3>BLOCK & REPORT</h3>
+            <p>
+              Community safety tools planned for handling unwanted
+              messages and reported player activity.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-community-bottom">
+
+      <span>CONNECT</span>
+      <b>→</b>
+      <span>COMMUNICATE</span>
+      <b>→</b>
+      <span>COMPETE</span>
+      <b>→</b>
+      <span>BUILD COMMUNITY</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN COMMUNITY & CHAT
+========================================================= */
+
+.z-community {
+  position: relative;
+  width: 100%;
+  padding: 120px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.z-community-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+
+/* HEADER */
+
+.z-community-head {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.z-community-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.z-community-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -1.8px;
+  font-weight: 900;
+}
+
+.z-community-sub {
+  max-width: 690px;
+  margin: 22px 0 0;
+  color: rgba(255,255,255,0.56);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* GRID */
+
+.z-community-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+
+/* CHAT PREVIEW */
+
+.z-chat-preview {
+  padding: 1px;
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(22,140,255,0.55),
+    rgba(255,255,255,0.05),
+    rgba(22,140,255,0.15)
+  );
+}
+
+.z-chat-window {
+  min-height: 425px;
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 21px;
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(22,140,255,0.13),
+      transparent 35%
+    ),
+    rgba(7,11,18,0.96);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+}
+
+
+/* CHAT TOP */
+
+.z-chat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.z-chat-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.z-chat-icon {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(22,140,255,0.3);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+  background: rgba(22,140,255,0.06);
+}
+
+.z-chat-brand strong {
+  display: block;
+  color: #ffffff;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+
+.z-chat-brand small {
+  display: block;
+  margin-top: 4px;
+  color: rgba(255,255,255,0.3);
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.z-chat-top > b {
+  color: #168cff;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+
+
+/* MESSAGES */
+
+.z-chat-messages {
+  padding-top: 20px;
+}
+
+.z-message {
+  display: flex;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.055);
+}
+
+.z-message-avatar {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.62);
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.z-message strong {
+  display: block;
+  color: rgba(255,255,255,0.62);
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.z-message p {
+  margin: 5px 0 0;
+  color: rgba(255,255,255,0.4);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* INPUT */
+
+.z-chat-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  padding: 13px 14px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 9px;
+  background: rgba(255,255,255,0.02);
+  color: rgba(255,255,255,0.25);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+
+.z-chat-input b {
+  color: #168cff;
+  font-size: 13px;
+}
+
+
+/* COMMUNITY CARDS */
+
+.z-community-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.z-community-card {
+  display: flex;
+  gap: 16px;
+  padding: 23px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.022);
+  transition: 0.25s ease;
+}
+
+.z-community-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(22,140,255,0.3);
+  background: rgba(22,140,255,0.035);
+}
+
+.z-community-card > span {
+  flex: 0 0 auto;
+  color: rgba(22,140,255,0.72);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.z-community-card h3 {
+  margin: 0 0 9px;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.z-community-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.43);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+
+/* BOTTOM */
+
+.z-community-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 48px;
+  color: rgba(255,255,255,0.33);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.z-community-bottom b {
+  color: #168cff;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .z-community-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .z-community {
+    padding: 85px 15px;
+  }
+
+  .z-community-title {
+    font-size: 35px;
+  }
+
+  .z-community-sub {
+    font-size: 13px;
+  }
+
+  .z-chat-window {
+    min-height: 410px;
+    padding: 21px;
+  }
+
+  .z-community-features {
+    grid-template-columns: 1fr;
+  }
+
+  .z-community-card {
+    padding: 19px;
+  }
+
+  .z-community-bottom {
+    font-size: 7px;
+    letter-spacing: 1.1px;
+  }
+
+}
+
+  </style>
+
+<!-- =========================================================
+     ZORVAN — PLAYER DASHBOARD CONCEPT
+     STEP 18
+========================================================= -->
+
+<section class="z-dashboard" id="dashboard">
+
+  <div class="z-dashboard-inner">
+
+    <div class="z-section-label">ZORVAN // PLAYER EXPERIENCE</div>
+
+    <h2 class="z-dashboard-title">
+      YOUR ZORVAN.<br>
+      <span>ONE PLACE.</span>
+    </h2>
+
+    <p class="z-dashboard-desc">
+      A planned home experience built to bring tournaments, matches,
+      teams, rankings, performance and updates together.
+    </p>
+
+    <!-- DASHBOARD PREVIEW -->
+
+    <div class="z-dashboard-preview">
+
+      <!-- SIDEBAR -->
+
+      <aside class="z-dashboard-sidebar">
+
+        <div class="z-dashboard-brand">
+          <span class="z-dashboard-brand-mark">Z</span>
+          <span>ZORVAN</span>
+        </div>
+
+        <div class="z-dashboard-menu">
+
+          <div class="z-dashboard-menu-item active">
+            <span>01</span>
+            HOME
+          </div>
+
+          <div class="z-dashboard-menu-item">
+            <span>02</span>
+            TOURNAMENTS
+          </div>
+
+          <div class="z-dashboard-menu-item">
+            <span>03</span>
+            TEAMS
+          </div>
+
+          <div class="z-dashboard-menu-item">
+            <span>04</span>
+            RANKINGS
+          </div>
+
+          <div class="z-dashboard-menu-item">
+            <span>05</span>
+            PROFILE
+          </div>
+
+        </div>
+
+        <div class="z-dashboard-side-status">
+          <span class="z-dashboard-status-dot"></span>
+          PLATFORM IN DEVELOPMENT
+        </div>
+
+      </aside>
+
+
+      <!-- MAIN DASHBOARD -->
+
+      <div class="z-dashboard-main">
+
+        <div class="z-dashboard-top">
+
+          <div>
+            <div class="z-dashboard-mini-label">
+              PLAYER HOME
+            </div>
+
+            <h3>WELCOME BACK.</h3>
+
+            <p>
+              Your competitive journey starts here.
+            </p>
+          </div>
+
+          <div class="z-dashboard-profile">
+            <div class="z-dashboard-avatar">Z</div>
+
+            <div>
+              <strong>PLAYER</strong>
+              <small>PROFILE</small>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="z-dashboard-actions">
+
+          <div class="z-dashboard-action">
+            <span>01</span>
+            <strong>FIND TOURNAMENT</strong>
+            <small>DISCOVER COMPETITIONS</small>
+          </div>
+
+          <div class="z-dashboard-action">
+            <span>02</span>
+            <strong>CREATE TEAM</strong>
+            <small>BUILD YOUR SQUAD</small>
+          </div>
+
+          <div class="z-dashboard-action">
+            <span>03</span>
+            <strong>VIEW RANKINGS</strong>
+            <small>TRACK YOUR POSITION</small>
+          </div>
+
+          <div class="z-dashboard-action">
+            <span>04</span>
+            <strong>EDIT PROFILE</strong>
+            <small>MANAGE YOUR IDENTITY</small>
+          </div>
+
+        </div>
+
+
+        <!-- CONTENT GRID -->
+
+        <div class="z-dashboard-grid">
+
+          <div class="z-dashboard-panel z-dashboard-featured">
+
+            <div class="z-dashboard-panel-head">
+              <span>FEATURED / UPCOMING</span>
+              <b>VIEW ALL →</b>
+            </div>
+
+            <div class="z-dashboard-empty">
+
+              <div class="z-dashboard-empty-icon">+</div>
+
+              <strong>TOURNAMENTS WILL APPEAR HERE</strong>
+
+              <p>
+                Featured, upcoming and recommended competitions.
+              </p>
+
+              <span>PLANNED</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="z-dashboard-panel">
+
+            <div class="z-dashboard-panel-head">
+              <span>RANKING</span>
+              <b>OPEN →</b>
+            </div>
+
+            <div class="z-dashboard-stat">
+
+              <small>YOUR POSITION</small>
+
+              <strong>—</strong>
+
+              <p>
+                Ranking data will appear after launch.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="z-dashboard-panel">
+
+            <div class="z-dashboard-panel-head">
+              <span>RECENT MATCHES</span>
+              <b>VIEW ALL →</b>
+            </div>
+
+            <div class="z-dashboard-list">
+
+              <div>
+                <span>MATCH</span>
+                <strong>—</strong>
+              </div>
+
+              <div>
+                <span>RESULT</span>
+                <strong>—</strong>
+              </div>
+
+              <div>
+                <span>PERFORMANCE</span>
+                <strong>—</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="z-dashboard-panel">
+
+            <div class="z-dashboard-panel-head">
+              <span>PERFORMANCE</span>
+              <b>INSIGHTS →</b>
+            </div>
+
+            <div class="z-dashboard-performance">
+
+              <div>
+                <small>POINTS</small>
+                <strong>—</strong>
+              </div>
+
+              <div>
+                <small>MATCHES</small>
+                <strong>—</strong>
+              </div>
+
+              <div>
+                <small>RANK</small>
+                <strong>—</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="z-dashboard-panel z-dashboard-announcements">
+
+            <div class="z-dashboard-panel-head">
+              <span>ANNOUNCEMENTS</span>
+              <b>UPDATES →</b>
+            </div>
+
+            <div class="z-dashboard-empty compact">
+
+              <strong>ZORVAN UPDATES WILL APPEAR HERE</strong>
+
+              <p>
+                Platform news, tournament announcements and important updates.
+              </p>
+
+              <span>PLANNED</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-dashboard-footer">
+      <span>DISCOVER</span>
+      <i>→</i>
+      <span>COMPETE</span>
+      <i>→</i>
+      <span>TRACK</span>
+      <i>→</i>
+      <span>PROGRESS</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN — PLAYER DASHBOARD
+========================================================= */
+
+.z-dashboard {
+  position: relative;
+  width: 100%;
+  padding: 125px 20px;
+  box-sizing: border-box;
+}
+
+.z-dashboard-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.z-dashboard-title {
+  margin: 12px 0 18px;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: .95;
+  letter-spacing: -2px;
+  font-weight: 900;
+}
+
+.z-dashboard-title span {
+  color: #168cff;
+}
+
+.z-dashboard-desc {
+  max-width: 680px;
+  margin: 0 0 55px;
+  color: rgba(255,255,255,.58);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* PREVIEW */
+
+.z-dashboard-preview {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  min-height: 650px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18,26,40,.92),
+      rgba(5,9,15,.96)
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+
+/* SIDEBAR */
+
+.z-dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+
+  border-right: 1px solid rgba(255,255,255,.07);
+  background: rgba(4,8,14,.65);
+}
+
+.z-dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 45px;
+
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.z-dashboard-brand-mark {
+  display: grid;
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 8px;
+
+  background: #168cff;
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  box-shadow: 0 0 20px rgba(22,140,255,.22);
+}
+
+.z-dashboard-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.z-dashboard-menu-item {
+  padding: 12px 10px;
+
+  border-radius: 9px;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  transition: .2s ease;
+}
+
+.z-dashboard-menu-item span {
+  margin-right: 8px;
+  color: rgba(255,255,255,.22);
+}
+
+.z-dashboard-menu-item.active {
+  color: #fff;
+  background: rgba(22,140,255,.11);
+  border: 1px solid rgba(22,140,255,.18);
+}
+
+.z-dashboard-menu-item.active span {
+  color: #168cff;
+}
+
+.z-dashboard-side-status {
+  margin-top: auto;
+
+  color: rgba(255,255,255,.28);
+
+  font-size: 7px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.z-dashboard-status-dot {
+  display: inline-block;
+
+  width: 5px;
+  height: 5px;
+
+  margin-right: 6px;
+
+  border-radius: 50%;
+  background: #168cff;
+  box-shadow: 0 0 9px rgba(22,140,255,.8);
+}
+
+
+/* MAIN */
+
+.z-dashboard-main {
+  min-width: 0;
+  padding: 28px;
+}
+
+.z-dashboard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.z-dashboard-mini-label {
+  margin-bottom: 8px;
+
+  color: #168cff;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.z-dashboard-top h3 {
+  margin: 0 0 5px;
+
+  color: #fff;
+
+  font-size: 25px;
+  letter-spacing: -.5px;
+}
+
+.z-dashboard-top p {
+  margin: 0;
+
+  color: rgba(255,255,255,.42);
+  font-size: 11px;
+}
+
+.z-dashboard-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 11px;
+
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.025);
+}
+
+.z-dashboard-avatar {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: rgba(22,140,255,.13);
+  border: 1px solid rgba(22,140,255,.3);
+
+  color: #168cff;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.z-dashboard-profile strong,
+.z-dashboard-profile small {
+  display: block;
+}
+
+.z-dashboard-profile strong {
+  color: #fff;
+  font-size: 9px;
+}
+
+.z-dashboard-profile small {
+  margin-top: 3px;
+  color: rgba(255,255,255,.3);
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+
+
+/* ACTIONS */
+
+.z-dashboard-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+
+  margin: 20px 0;
+}
+
+.z-dashboard-action {
+  padding: 15px;
+
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.025);
+}
+
+.z-dashboard-action span {
+  display: block;
+  margin-bottom: 17px;
+
+  color: #168cff;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.z-dashboard-action strong,
+.z-dashboard-action small {
+  display: block;
+}
+
+.z-dashboard-action strong {
+  color: #fff;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.z-dashboard-action small {
+  margin-top: 5px;
+  color: rgba(255,255,255,.28);
+  font-size: 7px;
+}
+
+
+/* CONTENT */
+
+.z-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 10px;
+}
+
+.z-dashboard-panel {
+  min-width: 0;
+  min-height: 155px;
+
+  padding: 16px;
+
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.018);
+}
+
+.z-dashboard-featured {
+  grid-row: span 2;
+}
+
+.z-dashboard-announcements {
+  grid-column: 1 / -1;
+  min-height: 120px;
+}
+
+.z-dashboard-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.z-dashboard-panel-head span {
+  color: rgba(255,255,255,.48);
+}
+
+.z-dashboard-panel-head b {
+  color: #168cff;
+  font-size: 6px;
+}
+
+
+/* EMPTY */
+
+.z-dashboard-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 225px;
+
+  text-align: center;
+
+  border: 1px dashed rgba(255,255,255,.08);
+  border-radius: 10px;
+}
+
+.z-dashboard-empty.compact {
+  min-height: 70px;
+}
+
+.z-dashboard-empty-icon {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  margin-bottom: 13px;
+
+  border-radius: 50%;
+
+  color: #168cff;
+  border: 1px solid rgba(22,140,255,.25);
+
+  font-size: 18px;
+}
+
+.z-dashboard-empty strong {
+  color: rgba(255,255,255,.62);
+  font-size: 8px;
+  letter-spacing: .7px;
+}
+
+.z-dashboard-empty p {
+  max-width: 310px;
+  margin: 8px auto 12px;
+
+  color: rgba(255,255,255,.28);
+
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.z-dashboard-empty span {
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  color: #168cff;
+  background: rgba(22,140,255,.08);
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+/* STATS */
+
+.z-dashboard-stat strong {
+  display: block;
+
+  margin: 8px 0;
+
+  color: #fff;
+  font-size: 34px;
+}
+
+.z-dashboard-stat small,
+.z-dashboard-stat p {
+  color: rgba(255,255,255,.28);
+  font-size: 8px;
+}
+
+.z-dashboard-stat p {
+  line-height: 1.5;
+}
+
+
+/* MATCH LIST */
+
+.z-dashboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.z-dashboard-list div {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.z-dashboard-list span {
+  color: rgba(255,255,255,.3);
+  font-size: 7px;
+}
+
+.z-dashboard-list strong {
+  color: rgba(255,255,255,.7);
+  font-size: 9px;
+}
+
+
+/* PERFORMANCE */
+
+.z-dashboard-performance {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 8px;
+}
+
+.z-dashboard-performance div {
+  padding: 12px 8px;
+
+  border-radius: 9px;
+
+  background: rgba(255,255,255,.025);
+  text-align: center;
+}
+
+.z-dashboard-performance small {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: rgba(255,255,255,.27);
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.z-dashboard-performance strong {
+  color: #fff;
+  font-size: 19px;
+}
+
+
+/* FOOTER */
+
+.z-dashboard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  margin-top: 35px;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.z-dashboard-footer i {
+  color: #168cff;
+  font-style: normal;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .z-dashboard-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .z-dashboard-sidebar {
+    display: none;
+  }
+
+  .z-dashboard-actions {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .z-dashboard {
+    padding: 90px 14px;
+  }
+
+  .z-dashboard-main {
+    padding: 18px;
+  }
+
+  .z-dashboard-top {
+    align-items: flex-start;
+  }
+
+  .z-dashboard-profile {
+    display: none;
+  }
+
+  .z-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .z-dashboard-featured {
+    grid-row: auto;
+  }
+
+  .z-dashboard-announcements {
+    grid-column: auto;
+  }
+
+  .z-dashboard-footer {
+    flex-wrap: wrap;
+    gap: 9px;
+    font-size: 7px;
+  }
+
+}
+
+@media (max-width: 430px) {
+
+  .z-dashboard-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .z-dashboard-action {
+    padding: 13px;
+  }
+
+  .z-dashboard-top h3 {
+    font-size: 21px;
+  }
+
+}
+
+  </style>
+
+<!-- =========================================================
+     ZORVAN — PLAYER PROFILE EXPERIENCE
+     STEP 19
+========================================================= -->
+
+<section class="z-profile" id="profile">
+
+  <div class="z-profile-inner">
+
+    <div class="z-section-label">ZORVAN // PLAYER IDENTITY</div>
+
+    <h2 class="z-profile-title">
+      BUILD YOUR<br>
+      <span>PLAYER IDENTITY.</span>
+    </h2>
+
+    <p class="z-profile-desc">
+      A planned player profile built to bring identity, competitive history,
+      achievements, rankings and progression into one place.
+    </p>
+
+
+    <!-- PROFILE PREVIEW -->
+
+    <div class="z-profile-preview">
+
+      <!-- PROFILE HEADER -->
+
+      <div class="z-profile-header">
+
+        <div class="z-profile-avatar">
+          Z
+        </div>
+
+        <div class="z-profile-main">
+
+          <div class="z-profile-name-row">
+            <h3>PLAYER</h3>
+            <span class="z-profile-badge">VERIFIED</span>
+          </div>
+
+          <p>@username · PLAYER ID: —</p>
+
+          <div class="z-profile-tags">
+            <span>FREE FIRE</span>
+            <span>REGION —</span>
+            <span>ROLE —</span>
+          </div>
+
+        </div>
+
+        <div class="z-profile-status">
+          <span></span>
+          PROFILE
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE CONTENT -->
+
+      <div class="z-profile-grid">
+
+        <!-- ABOUT -->
+
+        <div class="z-profile-card z-profile-about">
+
+          <div class="z-profile-card-head">
+            <span>01 // PLAYER INFORMATION</span>
+          </div>
+
+          <div class="z-profile-info-grid">
+
+            <div>
+              <small>USERNAME</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>IGN</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>GAME UID</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>REGION</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>MAIN GAME</small>
+              <strong>FREE FIRE</strong>
+            </div>
+
+            <div>
+              <small>PREFERRED ROLE</small>
+              <strong>—</strong>
+            </div>
+
+          </div>
+
+          <div class="z-profile-bio">
+            <small>BIO</small>
+            <p>
+              Player bio and personal competitive information will appear here.
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- BADGES -->
+
+        <div class="z-profile-card">
+
+          <div class="z-profile-card-head">
+            <span>02 // BADGES</span>
+            <b>VIEW ALL →</b>
+          </div>
+
+          <div class="z-profile-badges">
+
+            <div class="z-profile-mini-badge">
+              <strong>✓</strong>
+              <span>VERIFIED</span>
+            </div>
+
+            <div class="z-profile-mini-badge">
+              <strong>★</strong>
+              <span>ELITE</span>
+            </div>
+
+            <div class="z-profile-mini-badge">
+              <strong>+</strong>
+              <span>PRO</span>
+            </div>
+
+            <div class="z-profile-mini-badge">
+              <strong>◆</strong>
+              <span>ATHLETE</span>
+            </div>
+
+          </div>
+
+          <div class="z-profile-planned">
+            PLANNED
+          </div>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="z-profile-card">
+
+          <div class="z-profile-card-head">
+            <span>03 // PLAYER STATS</span>
+            <b>INSIGHTS →</b>
+          </div>
+
+          <div class="z-profile-stats">
+
+            <div>
+              <small>MATCHES</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>WINS</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>KILLS</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>POINTS</small>
+              <strong>—</strong>
+            </div>
+
+          </div>
+
+          <p class="z-profile-note">
+            Competitive statistics will be generated from verified match data.
+          </p>
+
+        </div>
+
+
+        <!-- HISTORY -->
+
+        <div class="z-profile-card z-profile-history">
+
+          <div class="z-profile-card-head">
+            <span>04 // COMPETITIVE HISTORY</span>
+            <b>VIEW HISTORY →</b>
+          </div>
+
+          <div class="z-profile-history-row">
+
+            <div>
+              <small>TOURNAMENTS</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>MATCHES</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>TEAM HISTORY</small>
+              <strong>—</strong>
+            </div>
+
+            <div>
+              <small>RANKING HISTORY</small>
+              <strong>—</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROGRESSION -->
+
+        <div class="z-profile-card z-profile-progression">
+
+          <div class="z-profile-card-head">
+            <span>05 // PROGRESSION</span>
+          </div>
+
+          <div class="z-profile-progress">
+
+            <div class="z-profile-progress-top">
+              <span>PLAYER PROGRESSION</span>
+              <b>—</b>
+            </div>
+
+            <div class="z-profile-progress-bar">
+              <span></span>
+            </div>
+
+            <p>
+              Achievements, rankings, badges and competitive milestones
+              will build your ZORVAN legacy.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="z-profile-footer">
+      IDENTITY <i>→</i>
+      PERFORMANCE <i>→</i>
+      ACHIEVEMENTS <i>→</i>
+      LEGACY
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ZORVAN — PLAYER PROFILE
+========================================================= */
+
+.z-profile {
+  position: relative;
+  width: 100%;
+  padding: 125px 20px;
+  box-sizing: border-box;
+}
+
+.z-profile-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.z-profile-title {
+  margin: 12px 0 18px;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: .95;
+  letter-spacing: -2px;
+  font-weight: 900;
+}
+
+.z-profile-title span {
+  color: #168cff;
+}
+
+.z-profile-desc {
+  max-width: 680px;
+  margin: 0 0 55px;
+
+  color: rgba(255,255,255,.58);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* PREVIEW */
+
+.z-profile-preview {
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17,25,39,.94),
+      rgba(5,9,15,.97)
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+
+/* HEADER */
+
+.z-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 28px;
+
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.z-profile-avatar {
+  display: grid;
+  place-items: center;
+
+  width: 78px;
+  height: 78px;
+  flex: 0 0 78px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22,140,255,.22),
+      rgba(22,140,255,.04)
+    );
+
+  border: 1px solid rgba(22,140,255,.3);
+
+  color: #168cff;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  box-shadow:
+    0 0 35px rgba(22,140,255,.1);
+}
+
+.z-profile-main {
+  min-width: 0;
+}
+
+.z-profile-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.z-profile-main h3 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 25px;
+  letter-spacing: -.5px;
+}
+
+.z-profile-main > p {
+  margin: 6px 0 12px;
+
+  color: rgba(255,255,255,.32);
+
+  font-size: 9px;
+}
+
+.z-profile-badge {
+  padding: 5px 8px;
+
+  border-radius: 999px;
+
+  color: #168cff;
+  background: rgba(22,140,255,.09);
+  border: 1px solid rgba(22,140,255,.2);
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.z-profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.z-profile-tags span {
+  padding: 5px 8px;
+
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 6px;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .8px;
+}
+
+.z-profile-status {
+  margin-left: auto;
+
+  color: rgba(255,255,255,.3);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.z-profile-status span {
+  display: inline-block;
+
+  width: 5px;
+  height: 5px;
+
+  margin-right: 5px;
+
+  border-radius: 50%;
+
+  background: #168cff;
+  box-shadow: 0 0 9px rgba(22,140,255,.8);
+}
+
+
+/* GRID */
+
+.z-profile-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 10px;
+
+  padding: 18px;
+}
+
+.z-profile-card {
+  min-width: 0;
+  padding: 18px;
+
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.018);
+}
+
+.z-profile-about {
+  grid-row: span 2;
+}
+
+.z-profile-history,
+.z-profile-progression {
+  grid-column: 1 / -1;
+}
+
+
+/* CARD HEAD */
+
+.z-profile-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.z-profile-card-head span {
+  color: rgba(255,255,255,.46);
+}
+
+.z-profile-card-head b {
+  color: #168cff;
+  font-size: 6px;
+}
+
+
+/* INFO */
+
+.z-profile-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+.z-profile-info-grid div {
+  padding: 12px;
+
+  border-radius: 9px;
+
+  background: rgba(255,255,255,.025);
+}
+
+.z-profile-info-grid small,
+.z-profile-info-grid strong {
+  display: block;
+}
+
+.z-profile-info-grid small {
+  margin-bottom: 7px;
+
+  color: rgba(255,255,255,.26);
+
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.z-profile-info-grid strong {
+  color: rgba(255,255,255,.7);
+  font-size: 9px;
+}
+
+.z-profile-bio {
+  margin-top: 12px;
+  padding: 13px;
+
+  border-left: 2px solid rgba(22,140,255,.45);
+
+  background: rgba(22,140,255,.035);
+}
+
+.z-profile-bio small {
+  color: rgba(255,255,255,.26);
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.z-profile-bio p {
+  margin: 7px 0 0;
+
+  color: rgba(255,255,255,.38);
+
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+
+/* BADGES */
+
+.z-profile-badges {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 8px;
+}
+
+.z-profile-mini-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px;
+
+  border-radius: 9px;
+
+  background: rgba(255,255,255,.025);
+}
+
+.z-profile-mini-badge strong {
+  display: grid;
+  place-items: center;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 7px;
+
+  color: #168cff;
+  border: 1px solid rgba(22,140,255,.2);
+
+  font-size: 10px;
+}
+
+.z-profile-mini-badge span {
+  color: rgba(255,255,255,.52);
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .7px;
+}
+
+.z-profile-planned {
+  margin-top: 12px;
+
+  color: rgba(22,140,255,.7);
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+/* STATS */
+
+.z-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 7px;
+}
+
+.z-profile-stats div {
+  padding: 12px 7px;
+
+  border-radius: 9px;
+
+  background: rgba(255,255,255,.025);
+
+  text-align: center;
+}
+
+.z-profile-stats small {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: rgba(255,255,255,.25);
+
+  font-size: 5px;
+  letter-spacing: .8px;
+}
+
+.z-profile-stats strong {
+  color: #fff;
+  font-size: 17px;
+}
+
+.z-profile-note {
+  margin: 12px 0 0;
+
+  color: rgba(255,255,255,.25);
+
+  font-size: 7px;
+  line-height: 1.5;
+}
+
+
+/* HISTORY */
+
+.z-profile-history-row {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 9px;
+}
+
+.z-profile-history-row div {
+  padding: 13px;
+
+  border-radius: 9px;
+
+  background: rgba(255,255,255,.025);
+}
+
+.z-profile-history-row small,
+.z-profile-history-row strong {
+  display: block;
+}
+
+.z-profile-history-row small {
+  margin-bottom: 7px;
+
+  color: rgba(255,255,255,.25);
+
+  font-size: 5px;
+  letter-spacing: .8px;
+}
+
+.z-profile-history-row strong {
+  color: rgba(255,255,255,.65);
+  font-size: 13px;
+}
+
+
+/* PROGRESSION */
+
+.z-profile-progress-top {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  color: rgba(255,255,255,.45);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.z-profile-progress-top b {
+  color: #168cff;
+}
+
+.z-profile-progress-bar {
+  height: 6px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.06);
+}
+
+.z-profile-progress-bar span {
+  display: block;
+
+  width: 0%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #168cff;
+}
+
+.z-profile-progress p {
+  margin: 12px 0 0;
+
+  color: rgba(255,255,255,.28);
+
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+
+/* FOOTER */
+
+.z-profile-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+
+  margin-top: 35px;
+
+  color: rgba(255,255,255,.4);
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.z-profile-footer i {
+  color: #168cff;
+  font-style: normal;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+  .z-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .z-profile-about,
+  .z-profile-history,
+  .z-profile-progression {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .z-profile {
+    padding: 90px 14px;
+  }
+
+  .z-profile-header {
+    padding: 20px;
+  }
+
+  .z-profile-avatar {
+    width: 60px;
+    height: 60px;
+    flex-basis: 60px;
+    border-radius: 16px;
+  }
+
+  .z-profile-main h3 {
+    font-size: 20px;
+  }
+
+  .z-profile-status {
+    display: none;
+  }
+
+  .z-profile-grid {
+    padding: 12px;
+  }
+
+  .z-profile-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .z-profile-history-row {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .z-profile-stats {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .z-profile-name-row {
+    flex-wrap: wrap;
+  }
+
+  .z-profile-footer {
+    font-size: 6px;
+    gap: 8px;
+  }
+
+}
+
+          </style>
